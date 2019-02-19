@@ -1,0 +1,29 @@
+<!--pages/i-pages/additional/additional.wxml-->
+<view class='body item'>
+ <view class='cell mine_cell mt-20'>
+
+    <view class='mine_row' >
+      <view class='mine_col' bindtap='goToPage' data-url='/pages/i-pages/recommend/recommend'>
+        <image class='mine_icon' src='/img/mine_icon5.png'></image>
+        <text>推荐有奖</text>
+      </view>
+      <view class='mine_col'  bindtap='goToPage' data-url='/pages/i-pages/league/league'>
+        <image class='mine_icon icon2' src='/img/mine_icon2.png'></image>
+        <text>合作加盟</text> 
+      </view>
+    </view>
+    <view class='mine_row'>
+      <view class='mine_col'  bindtap='waiting'>
+        <image class='mine_icon' src='/img/mine_icon5.png'></image>
+        <text>共享气瓶</text>
+      </view>
+      <view class='mine_col' bindtap='waiting'>
+        <image class='mine_icon icon2' src='/img/mine_icon2.png'></image>
+        <text>燃气保险</text> 
+      </view>
+     
+    </view>
+  </view>
+</view>
+
+

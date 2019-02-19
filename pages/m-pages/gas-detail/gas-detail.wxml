@@ -1,0 +1,38 @@
+<view class='body plr-20' wx:if='{{ready}}'>
+  <view class='cell gas_info mt-20'>
+      <view class='gas_img'>
+        <image src='{{imgBase + gasJarInfo.img}}'></image>
+      </view>
+      <view class='gas_inner'>
+        <text class='f18 c-333'>气瓶品牌：{{gasJarInfo.brand}}</text>
+        <view class='f14 c-666'><text>规格用途</text>{{gasJarInfo.specifications}} {{gasJarInfo.purpose}}</view>
+        <view class='f14 c-666'><text>开户单位</text><text>{{gasJarInfo.supplyName}}</text></view>
+      </view> 
+  </view>
+  <view  class='cell d_cell mt-20'>
+    <view class='d_item'>
+      <text class='fl f14 c-999'>开户日期</text>
+      <text class='fr f14 c-666'>{{gasJarInfo.createTime}}</text>
+    </view>
+    <view class='d_item'>
+      <text class='fl f14 c-999'>开户保证金</text>
+      <text class='fr f14 c-danger'>￥{{gasJarInfo.deposit}}</text>
+    </view>
+  </view>
+    <view  class='cell d_cell mt-20'>
+    <view class='d_item'>
+      <text class='fl f14 c-999'>充装单位</text>
+      <text class='fr f14 c-666'>{{gasJarInfo.filling}}</text>
+    </view>
+    <view class='d_item'>
+      <text class='fl f14 c-999'>服务热线</text>
+      <text class='fr f14 c-666'>{{gasJarInfo.customService}}</text>
+    </view>
+  </view>
+
+  <button class='btn full_btn mt-60 mb-40'  catchtap='callPhone' data-phone='{{gasJarInfo.customService}}' >退瓶</button>
+
+</view> 
+
+
+

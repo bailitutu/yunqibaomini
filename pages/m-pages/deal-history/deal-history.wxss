@@ -1,0 +1,76 @@
+/* pages/m-pages/deal-history/deal-history.wxss */
+@import '/components/nocontent/nocontent';
+.data_cell{
+  text-align: center;
+}
+
+.data_inner{
+  width:250rpx;
+  height:90rpx;
+  margin:0 auto;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  align-items:center;
+}
+
+.data_inner image{
+  width:40rpx;
+  height:36rpx;
+}
+.data_inner picker{
+  width:100%;
+  height:50rpx;
+}
+.data_inner picker .picker{
+  height:50rpx;
+  width:100%;
+  line-height: 50rpx;
+  display: inline-block;
+  padding-left:10rpx;
+}
+.history_cell{
+  padding:0 20rpx;
+  margin-bottom:30rpx;
+}
+.history_cell .history_item{
+  height:132rpx;
+  border-bottom:1px solid #eeeeee;
+  padding:24rpx 0 24rpx 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+}
+.history_cell .history_item:last-child{
+  border:none;
+}
+.history_icon{
+  width:36rpx;
+  height:100%;
+
+}
+
+.history_icon image{
+  height:38rpx;
+  width:36rpx;
+
+}
+.history_info{
+  margin-left:20rpx;
+  width:400rpx;
+  flex-grow: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+}
+.history_price{
+  height:100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}

@@ -1,0 +1,2 @@
+/* pages/i-pages/openingNotes/openingNotes.wxss */
+@import '../purchaseNotes/purchaseNotes';

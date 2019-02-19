@@ -1,0 +1,157 @@
+<scroll-view scroll-y='{{!notFunds}}' class="body  pb-footer" wx:if='{{isReady}}'>
+    <view class='cell confirm_head mt-20' catchtap='selectAddress'>
+        <view class='confirm_head_img'>
+          <image src='/img/shops_location.png'></image>
+        </view>
+        <view class='confirm_head_info f14 c-333'>
+          <text>收货人：{{orderInfo.receiving.regname}}</text>
+          <text>手机号：{{orderInfo.receiving.regphone}}</text>
+          <text>收货地址：{{orderInfo.receiving.province}}{{orderInfo.receiving.city}}{{orderInfo.receiving.region}}{{orderInfo.receiving.address}}</text>
+        </view>
+        <view  class='confirm_head_img'>
+           <image class='goTo_icon'  src='/img/goTo_icon.png'></image>
+        </view>
+    </view>
+
+    <view class='cell  mt-20' >
+      <view class='picker_cell plr-20'>
+          <view class="f14 c-999" style='min-width:150rpx;'>送达时间：</view>
+          <picker class='pla_sel' bindchange="bindChangeTime" value="{{timeIndex}}" range="{{timeList}}">
+            <view class="picker f14 c-333 ">
+              {{timeList[timeIndex]}}
+            </view>
+          </picker>
+         <image class='goTo_icon' style='height:28rpx;width:14rpx;' src='/img/goTo_icon.png'></image>
+      </view>
+
+ 
+
+      <view class='picker_cell plr-20'>
+          <view class="f14 c-999" style='min-width:150rpx;'>用途</view>
+          <picker class='pla_sel' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker f14 c-999" wx:if='{{!hasPurpose}}'>
+              请选择
+              </view>
+            <view class="picker f14 c-333 " wx:else>
+              {{array[index]}}
+            </view>
+          </picker>
+         <image class='goTo_icon' style='height:28rpx;width:14rpx;' src='/img/goTo_icon.png'></image>
+      </view>
+      <view class='picker_cell plr-20' catchtap='selectPayWay'>
+        <view class="f14 c-999" style='min-width:150rpx;'>支付方式</view>
+        <view class='pla_sel f14 c-333'> {{payWayArr[payWayIndex]}}</view>
+         <image class='goTo_icon' style='height:28rpx;width:14rpx;' src='/img/goTo_icon.png'></image>
+      </view>
+      <view class='select_discount_cell' catchtap='selectCoupon' data-able='{{(!orderInfo.isCoupons || banDiscount) ? false:true}}' >
+        <text class='f14 c-999' style='min-width:150rpx;'>优惠券  </text>
+        <text class='f14 c-999' wx:if='{{banDiscount  }}'>优惠券不可用</text>
+        <text class='f14 c-999' wx:if='{{!orderInfo.isCoupons && !banDiscount}}'>暂无可用优惠券</text>
+        <text class='f14 c-333' wx:if='{{orderInfo.isCoupons && !banDiscount }}'>{{couponName}}</text>
+        <image class='goTo_icon' style='height:28rpx;width:14rpx;' src='/img/goTo_icon.png'></image>
+      </view>
+    </view>
+
+    <view class='cell mt-20 plr-20'>
+      <view class='o-goods-info' wx:for='{{orderInfo.yGoodsList}}' wx:key='goods'>
+        <view class='o-goods-img'>
+            <image src='{{imgBase+ item.img}}'></image>
+        </view> 
+        <view class='o-good-detail c-333 f12'>
+          <view><text class='f15'>{{item.brand}}</text><text class='f14'>×1</text></view>
+          <view><text class='c-666'>气瓶产权</text><text>{{item.brand}}</text></view>
+          <view><text class='c-666'>规格</text><text>{{item.specifications}}</text></view>
+        </view>
+      </view>
+    </view>
+  <view class='cell d_cell mt-20'>
+    <view class='d_inner'>
+      <label class='f14 c-666'>商品总价</label>
+      <text class='f13 c-333'>￥{{orderInfo.platformfee}}</text>
+    </view>
+    <view class='d_inner'>
+      <label class='f14 c-666'>配送费</label>
+      <text class='f13 c-999'>￥{{orderInfo.markifee}}</text>
+    </view>
+    <view class='d_inner' wx:if='{{orderInfo.orderType == 2 || orderInfo.orderType == 4}}'>
+      <label class='f14 c-666'>气瓶保证金</label>
+      <text class='f13 c-999'>￥{{orderInfo.propertyfee}}</text>
+    </view>
+    <view class='d_inner'>
+      <label class='f14 c-666'>折扣价格</label>
+      <text class='f13 c-999'>-￥{{orderInfo.coupon}}</text>
+    </view>
+        <view class='d_inner'>
+      <label class='f14 c-333'>合计</label>
+      <text class='f13 c-danger'>￥{{orderInfo.total}}</text>
+
+    </view>
+  
+  </view>
+</scroll-view>
+  <!-- <view class='confirm_footer_tip f12 c-one'>
+    xxx保险公司为您提供液化气安全保障
+  </view>   -->
+<view class='f_btn_item' catchtap='placeHander'>
+  <button class='btn f_btn'>
+    付款
+  </button>
+</view>
+
+<view class='y-alert' wx:if='{{notFunds}}'>
+  <view class='y-alert-inner'>
+    <view class="alert-content t_center">  
+      <image src="/img/not_funds.png" alt="" class="age"></image>  
+      <view class="f15 c-333 mt-30">余额不足</view>        
+    </view>  
+    <view class='y-alert-btns'>
+        <button class='btn bg-white cancel_btn' catchtap='cancleRecharge'>取消</button>
+        <button class='btn bg-white confirm_btn' catchtap='goRecharge'>去充值</button>
+    </view>
+  </view>
+</view>
+
+
+ <view  class='y_pay_alert' wx:if='{{showPayItem}}'>
+    <view class='y_alert_inner'>
+        <view class='y_alert_header'>
+          <view class='y_close_icon' catchtap='closePay'>
+              <image src='/img/close_btn.png'></image>
+          </view>
+          <view class='y_head_title f16 c-333'>请输入支付密码</view>
+        </view>
+        <view class='y_alert_content'>
+            <view class='content_item f20 c-333'>
+                ￥{{orderInfo.total}}
+            </view>
+            <view class='pass_item'>
+                <view class='pass_inner' catchtap='set_Focus'>
+                  <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 1}}'>*</i>
+                  </view>
+                  <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 2}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 3}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 4}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 5}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 6}}'>*</i>
+                  </view>
+                </view>
+            </view>
+        </view>   
+    <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{payIsFocus}}" maxlength="6" />
+    </view>
+</view> 
+
+
+
+
+

@@ -1,0 +1,33 @@
+@import '/components/nocontent/nocontent';
+.gas_cell{
+  height: 172rpx;
+  position:relative;
+  padding: 20rpx 180rpx 20rpx 170rpx;
+}
+
+.gas_cell>image{
+  width:132rpx;
+  height:132rpx;
+  position:absolute;
+  top:50%;
+  left:20rpx;
+  margin-top:-66rpx;
+  border-radius: 8rpx;
+}
+
+.gas_cell text{
+  display: block;
+}
+
+
+
+
+
+
+.gas_cell .btn{
+  position:absolute;
+  top:50%;
+  right:20rpx;
+  z-index:10;
+  margin-top:-30rpx;
+}

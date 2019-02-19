@@ -1,0 +1,7 @@
+.body{
+  padding-bottom:20rpx;
+}
+.com_cell{
+  padding:20rpx 20rpx 40rpx;
+}
+

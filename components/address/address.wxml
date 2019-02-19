@@ -1,0 +1,32 @@
+<!--components/address/address.wxml-->
+<template name="address">
+  <view class='body plr-20 pb-footer' wx:if='{{isReady}}'>
+    <view class='cell bind_item mt-20'>
+      <view class='bind_cell'>
+          <label class='f14 c-999'>收货人姓名</label>
+          <input type='text' placeholder='请输入收货人姓名' value='{{userName}}' bindinput='changeName' class='f14 c-333'/>
+      </view> 
+      <view class='bind_cell'>
+          <label class='f14 c-999'>电话</label>
+          <input type='number' placeholder='请输入电话号码' value='{{userPhone}}' bindinput='changePhone'  class='f14 c-333'/>
+      </view> 
+      <view class='bind_cell notopPad'>
+          <label class='f14 c-999'>地区</label>
+          <picker class='addressPicker' mode="region" bindchange="bindRegionChange" value="{{region}}" >
+            <view class='picker f14  one_line {{ hasSelect ? "c-666" : "c-999"}}' >
+               {{region[0]}}{{region[1]}}{{region[2]}} 
+            </view>
+          </picker>
+          <image src='/img/goTo_icon.png' ></image>
+      </view> 
+      <view class='bind_cell'>
+          <label class='f14 c-999'>详细地址</label>
+          <input type='text' placeholder='例：16号楼1601室' bindinput='changeDetail' value='{{userDetail}}' class='f14 c-333'/>
+      </view> 
+    </view>
+    <button class='btn full_btn mt-40' bindtap='saveAddress'>{{ btnText }}</button>
+    <!-- <view class='f_btn_item'>
+      <button class='btn f_btn' bindtap='saveAddress'>{{ btnText }}</button>
+    </view> -->
+  </view>
+</template>  

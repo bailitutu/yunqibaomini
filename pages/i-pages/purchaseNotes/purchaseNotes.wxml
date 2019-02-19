@@ -1,0 +1,15 @@
+<!--pages/i-pages/purchaseNotes/purchaseNotes.wxml-->
+<view class='body plr-20'>
+  <view class='cell  mt-20 f14 c-one'>
+    <text > 1、用户必须在气瓶中间的文字、二维码标识里的中文、气瓶镂空标识以及中文钢印文字来识别气瓶充装单位和气瓶品牌。以预防同区域气瓶充装单位配送员送错气瓶液化气。</text>
+    <text>2、运气宝服务平台只是燃气用户和气瓶充装单位、供应点、配送员等使用的互联网服务工具。没有资质和资格承担气瓶配送过程中以及燃气各种使用过程中所发生的一切人和物的安全事故责任，在此声明！
+    </text>
+    <text class='c-danger'>3、用户必须熟读安全使用常识学习</text>
+    <text class='inner_text'>1、拧开燃具开关后，要确认燃具已经打着火；</text>
+    <text class='inner_text'>2、如果连续三次打不着火，应停顿一会儿；</text>
+    <text class='inner_text'>3、切勿在无人照看的情况下使用燃具、避免汤水溢出后淋息炉火并发生安全事故；</text>
+    <text class='inner_text'>4、不需私自清倒气瓶“残液”、加热、摔砸或倒卧气瓶；</text>
+    <text class='inner_text'>5、发生燃气泄漏时不要按开关、门铃、等家用电器开关、不得在漏气场所打手机、电话报警。应先关闭气阀后打开窗户、大门以及通风出口。</text>
+    <text>用户打勾，就已表明阅读、了解以下所有条款，并同意运气宝服务平台工具的一切订气电子条款</text>
+  </view>
+</view>

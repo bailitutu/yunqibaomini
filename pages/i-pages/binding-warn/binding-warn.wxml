@@ -1,0 +1,10 @@
+<!--pages/i-pages/binding-warn/binding-warn.wxml-->
+<view class='body plr-20'>
+
+  <view class='cell bind_cell mt-20'>
+    <label class='f14 c-999'>报警器编号</label>
+    <input type='number' placeholder='请输入报警器编号' catchchange='inputCode'  value='{{gasWranCode}}' class='f14 c-333'/>
+  </view>
+    <button class='btn full_btn mt-40' catchtap='bindingFn'>完成</button>
+
+</view>

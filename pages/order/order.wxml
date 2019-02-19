@@ -1,0 +1,77 @@
+<scroll-view  scroll-y='{{isScroll}}' class='body ' wx:if='{{isReady}}'>
+   <view class='no_content' wx:if='{{orderList.length == 0}}'>
+        <image src='/img/no_order_icon.png'></image>
+        <view class='f13 c-one mt-40'>您还没有相应订单</view>
+    </view>
+  <view class='inner plr-20'>
+    <view class='cell mt-20 bg-one'  wx:if='{{orderList.length > 0}}'   wx:for='{{orderList}}' wx:key='index'  >
+      <view class='cell_title '>
+        <text class='cell_t_l'>订单状态</text>
+        <text class='cell_t_r'>{{item.status}}</text>
+      </view> 
+       <view class='cell_content' wx:for='{{item.goodsList}}' wx:key='goods' wx:for-item='cell' data-orderid='{{item.orderId}}' catchtap='checkOrder'>
+        <view class='cell_img' ><image src='{{imgBaseUrl + cell.img}}'></image></view>
+        <view class='cell_inner'>
+          <view class='inner_cell'>
+            <text class='good_name'>{{cell.specName}}气瓶</text>
+            <text class='good_num fr'>×{{cell.num}}</text>
+          </view>
+          <view class='inner_cell'>
+            <text class='good_attr'>规格</text>
+            <text class='attr fr'>{{cell.specifications}}</text>
+          </view>
+          <view class='inner_cell'>
+            <text class='good_price'>价格</text>
+            <text class='price fr'>￥{{cell.price}}</text>
+          </view>
+        </view>
+      </view> 
+      <view class='cell_footer'>
+          <button class='cell_btn btn' wx:if='{{item.orderStatus == 1 || item.orderStatus == 2 || item.orderStatus == 3 || item.orderStatus == 7}}' data-orderid='{{item.orderId}}'  data-status='{{item.orderStatus}}' catchtap='cancelOrderHander'>取消订单</button>
+          <button class='cell_btn btn' wx:if='{{item.orderStatus == 3 || item.orderStatus == 5}}' catchtap='serviceHander'  data-orderid='{{item.orderId}}'>安检审核</button>
+          <button class='cell_btn btn' wx:if='{{item.isProperty}}' catchtap='changeHander'  data-orderid='{{item.orderId}}'>产权置换</button>
+          <button class='cell_btn btn' data-orderid='{{item.orderId}}' catchtap='delOrderHander' wx:if='{{item.orderStatus == 5}}' >删除订单</button>
+      </view>
+    </view> 
+
+  </view>
+ 
+  
+</scroll-view>
+
+  
+
+<view class='y_alert' wx:if='{{showCancel}}'>
+  <view class='y_alert_inner'>
+    <view class="alert_content t_center"> 
+      <view class='f15 c-333'>是否取消订单</view> 
+      <view class="f15 c-999 mt-30">取消之后将无法恢复</view>        
+    </view>  
+    <view class='y_alert-btns'>
+        <button class='btn bg-white cancel_btn' catchtap='cancelHander'>取消</button>
+        <button class='btn bg-white confirm_btn' catchtap='confirmHander'>确定</button>
+    </view>
+  </view>
+</view> 
+
+
+<view class='y_alert' wx:if='{{showCancel2}}'>
+  <view class='y_alert_inner'>
+    <view class="alert_content t_center"> 
+      <!-- <view class='f15 c-333'>是否取消订单</view>  -->
+      <view class="f15 c-999 mt-30">
+          气瓶已送出，现在取消订单
+        <view>将扣除配送费</view>
+      </view>        
+    </view>  
+    <view class='y_alert-btns'>
+        <button class='btn bg-white cancel_btn' catchtap='cancelHander2'>取消</button>
+        <button class='btn bg-white confirm_btn' catchtap='confirmHander2'>确定</button>
+    </view>
+  </view>
+</view> 
+
+
+
+
+

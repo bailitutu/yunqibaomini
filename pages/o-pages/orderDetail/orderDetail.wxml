@@ -1,0 +1,168 @@
+<!--pages/o-pages/detail-watingRob/detail-watingRob.wxml-->
+
+<scroll-view scroll-y='{{isScroll}}'  wx:if='{{isReady}}' class='body plr-20 '>
+  <view class='cell map_cell mt-20' wx:if='{{orderStatus == 2}}'> 
+    <map id="map"  longitude='{{cLongitude}}' latitude='{{cLatitude}}'   scale="14"  markers="{{markers}}" bindmarkertap='markertap'  style="width: 100%; height: 380rpx;border-radius:8rpx;"></map>
+  </view>
+  <view class='cell mt-20'>
+
+   <view class='o-head' >
+      <view class='o-head-timing' wx:if='{{orderStatus == 7}}'>
+        <text class='f12 c-666'>{{timeAll}}</text>
+        <image src='/img/timing.png' class='timing_img'></image>
+        <image src='/img/timing_bg.png' class='timing_bg'></image>
+      </view> 
+      <view class='o-head-timer' wx:if='{{orderStatus != 7 && orderStatus != 1}}'>
+        <text class='f15 c-333 bold'>{{orderInfo.expectTime}}</text>
+        <text class='f11 c-666'>送达时间</text>
+      </view>  
+      <text class='f12 c-666'>{{headTips}}</text>
+       <view class='btn_group mt-30 mb-40' wx:if='{{orderStatus == 1 || orderStatus == 2 ||  orderStatus == 7}}'>
+        <button class='btn g_btn cancel_btn f14 c-one' catchtap='cancelOrderHander'>取消订单</button>
+      </view>  
+      <view class= 'btn_group mt-30 mb-40' wx:if='{{orderStatus == 3}}' >
+          <button class='btn g_btn small_btn f14 c-one' catchtap='cancelOrderHander'>取消订单</button>
+        <button class='btn g_btn small_btn f14 c-one' catchtap='serviceHander'>安检审核</button>
+        <button class='btn g_btn small_btn f14 c-one' wx:if='{{orderInfo.isProperty}}' catchtap='changeHander'>产权置换</button>
+      </view>  
+      <view class='btn_group mt-30 mb-40' wx:if='{{orderStatus == 5}}' >
+        <button class='btn g_btn small_btn f14 c-one' catchtap='serviceHander'>安检审核</button>
+        <button class='btn g_btn small_btn f14 c-one' wx:if='{{orderInfo.isProperty}}' catchtap='changeHander'>产权置换</button>
+        <button class='btn g_btn small_btn f14 c-one' catchtap='delOrderHander'>删除订单</button>
+      </view>   
+      <view class='o-distributor-info' wx:if='{{orderStatus != 7 && orderInfo.marki.markiId}}' >
+        <view class='o-dis-head'><image src='{{imgBaseUrl+orderInfo.marki.markiImg}}'></image></view>
+        <view class='o-dis-det' catchtap='checkQual' data-id='{{orderInfo.marki.markiId}}'>
+          <text class='f13 c-333'>{{orderInfo.marki.markiName}}</text>
+          <view class='f13 c-999 db'><text>已认证</text><image class='renzheng_img' src='/img/renzheng.png'></image></view>
+        </view>
+        <view class='o-dis-btn'>
+          <view catchtap='complainTransit' data-id='{{orderInfo.marki.markiId}}'><image src='/img/icon_complain.png'></image></view>
+          <view catchtap='callPhone' data-phone='{{orderInfo.marki.markiPhone}}'><image src='/img/phone_1.png'></image></view>
+        </view>
+      </view>       
+   </view>
+  </view>
+  
+  <view class='cell mt-20 plr-20'>
+     <view class='o-supply-title bb-one'  wx:if='{{orderInfo.supply.supplyName.length > 0}}'  catchtap='toSupply'  data-id='{{orderInfo.supply.supplyId}}'>
+        <text class='f16 c-333'>{{orderInfo.supply.supplyName }}</text>
+        <image src='/img/goTo_icon.png'> </image>
+    </view>
+      <view class='o-supply-title bb-one'  wx:if='{{orderInfo.sell.sellName.length > 0}}'>
+        <text class='f16 c-333'>{{orderInfo.sell.sellName }}</text>
+    </view>
+    <view class='o-goods-info' wx:for='{{orderInfo.goodsList}}' wx:key='index' >
+        <view class='o-goods-img'>
+            <image src='{{imgBaseUrl + item.img}}'></image>
+        </view> 
+        <view class='o-good-detail c-333 f12'>
+          <view><text class='f15'>{{item.specName}}气瓶</text><text class='f14'>×1</text></view>
+          <view><text class='c-666'>气瓶品牌</text><text>{{item.brand}}</text></view>
+          <view><text class='c-666'>规格</text><text>{{item.specifications}}</text></view>
+        </view> 
+    </view>
+
+   </view> 
+
+  <view class='cell mt-20' wx:if='{{orderInfo.supply.supplyPhone}}' catchtap='callPhone' data-phone='{{orderInfo.supply.supplyPhone}}'>
+    <view class='icon_btn'  >
+      <image class='icon_btn_icon' src='/img/o-phone.png'></image>
+      <text class='f16 c-one'>联系供应点</text>
+    </view>
+  </view>
+    <view class='cell mt-20' wx:if='{{orderInfo.sell.sellPhone}}' catchtap='callPhone' data-phone='{{orderInfo.sell.sellPhone}}'>
+    <view class='icon_btn'  >
+      <image class='icon_btn_icon' src='/img/o-phone.png'></image>
+      <text class='f16 c-one'>联系燃气公司</text>
+    </view>
+  </view>
+
+  <view class='cell o-user-cell mt-20 c-one'>
+  
+    <view class='o-user-info f14'>      
+        <view class='o-user-name'><text >收货人：{{orderInfo.receiving.regname}}</text> <text>{{orderInfo.receiving.regphone}}</text></view>
+        <view class='o-user-address'>
+          <image class='o-user-position' src='/img/i_position.png'></image>
+          <text>收货地址：{{orderInfo.receiving.detail}}</text>
+        </view>
+    </view> 
+  </view>
+
+
+  <view class='cell d_cell mt-20'>
+    <view class='d_inner'>
+      <label class='f14 c-999'>商品总价</label>
+      <text class='f13 c-333'>￥{{orderInfo.platformFee}}</text>
+
+    </view>
+    <view class='d_inner'>
+      <label class='f14 c-999'>配送费</label>
+      <text class='f13 c-333'>￥{{orderInfo.markiFee}}</text>
+    </view>
+    <view class='d_inner' wx:if='{{orderInfo.orderType == 2 || orderInfo.orderType == 4 }}'>
+      <label class='f14 c-999'>使用保证金</label>
+      <text class='f13 c-333'>￥{{orderInfo.propertyfee}}</text>
+    </view>
+    <view class='d_inner'>
+      <label class='f14 c-999'>折扣价格</label>
+      <text class='f13 c-danger'>-￥{{orderInfo.coupons}}</text>
+    </view>
+        <view class='d_inner'>
+      <label class='f14 c-333'>合计</label>
+      <text class='f13 c-danger'>￥{{orderInfo.total}}</text>
+    </view>
+  </view>
+  <view class='cell d_cell mt-20 f14 c-999 mb-40'>
+    <view class='d_inner'>
+      <label>订单编号</label>
+      <text class='c-666'>{{orderId}}</text>
+    </view>
+    <view class='d_inner'>
+      <label>下单时间</label>
+      <text class='f12 c-666'>{{orderInfo.placetime}}</text>
+    </view>
+  </view>
+
+</scroll-view>
+
+
+ <view class='y_alert' wx:if='{{showCancel}}'>
+
+  <view class='y_alert_inner'>
+    <view class="alert_content t_center"> 
+      <view class='f15 c-333'>是否取消订单</view> 
+      <view class="f15 c-999 mt-30">取消之后将无法恢复</view>        
+    </view>  
+    <view class='y_alert-btns'>
+        <button class='btn bg-white cancel_btn' catchtap='cancelHander'>取消</button>
+        <button class='btn bg-white confirm_btn' catchtap='confirmHander'>确定</button>
+    </view>
+  </view>
+</view> 
+
+<view class='y_alert' wx:if='{{showCancel2}}'>
+  <view class='y_alert_inner'>
+    <view class="alert_content t_center"> 
+      <!-- <view class='f15 c-333'>是否取消订单</view>  -->
+      <view class="f15 c-999 mt-30">
+          气瓶已送出，现在取消订单
+        <view>将扣除配送费</view>
+      </view>        
+    </view>  
+    <view class='y_alert-btns'>
+        <button class='btn bg-white cancel_btn' catchtap='cancelHander'>取消</button>
+        <button class='btn bg-white confirm_btn' catchtap='confirmHander'>确定</button>
+    </view>
+  </view>
+</view> 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+@import '/components/discount/discount';
+@import '/components/nocontent/nocontent';

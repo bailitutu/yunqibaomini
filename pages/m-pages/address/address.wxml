@@ -1,0 +1,27 @@
+<!--pages/m-pages/address/address.wxml-->
+<import src='/components/nocontent/nocontent.wxml' />
+
+<view class='body plr-20 pb-footer' wx:if='{{isReady}}'> 
+  <view wx:if='{{addressList.length == 0 || !addressList}}'>
+    <template is='nocontet' data='{{noContentTips:"暂无收货地址"}}'></template>
+  </view>
+
+  <view class='cell address_cell mt-20' wx:if='{{addressList.length > 0}}' wx:for='{{addressList}}' wx:key='index'>
+        <text class='address c-333 f14 one_line'>{{item.province}}{{item.city}}{{item.region}}{{item.address}}</text>
+        <view class='c-999 f13 user_info'><text>{{item.regname}}</text><text class='user_phone'>{{item.regphone}}</text></view>
+        <view class='edit_address'>
+          <image src='/img/address_edit.png' catchtap='editAddress' data-addressId='{{item.regid}}'></image>
+        </view> 
+        <view class='del_address' >
+          <image src='/img/address_del.png' catchtap='delAddress' data-addressId='{{item.regid}}'></image>
+        </view>
+    </view>
+</view>
+<view class='f_btn_item'>
+  <button class='btn f_btn f_btn_icon' catchtap='newAddress'>
+       <image src='/img/add_icon.png'></image> 
+      新增配送地址
+  </button>
+</view>
+
+

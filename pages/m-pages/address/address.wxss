@@ -1,0 +1,46 @@
+/* pages/m-pages/address/address.wxss */
+@import '/components/nocontent/nocontent';
+.address_cell{
+  height:148rpx;
+  position:relative;
+  width:100%;
+  padding-right:170rpx;
+  overflow:hidden;
+}
+
+.address, .user_info{
+  width:100%;
+  height:74rpx;
+  display: block;
+  line-height: 74rpx;
+  padding-left:24rpx;
+}
+.address{
+  color:#333;
+}
+.user_phone{
+  margin-left:60rpx;
+}
+
+
+.edit_address{
+  width:44rpx;
+  height:44rpx;
+  position:absolute;
+  top:50%;
+  right:108rpx;
+  margin-top:-22rpx;
+}
+.edit_address image,.del_address image{
+  width:100%;
+  height:100%;
+}
+.del_address{
+  width:44rpx;
+  height:44rpx;
+  position:absolute;
+  top:50%;
+  right:24rpx;
+  margin-top:-22rpx;
+}
+

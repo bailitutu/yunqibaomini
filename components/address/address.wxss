@@ -1,0 +1,52 @@
+/* pages/m-pages/change-address/change-address.wxss */
+.bind_item{
+  padding:0 20rpx;
+}
+.bind_cell {
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #e9e9e9;
+  position: relative;
+  padding: 0 30rpx 0 224rpx;
+}
+.bind_cell:last-child{
+  border:none;
+}
+.bind_cell label{
+  width:224rpx;
+  height:90rpx;
+  position: absolute;
+  left: 0;
+  top:0;
+  line-height: 90rpx;
+}
+.bind_cell input{
+  width:100%;
+  height:88rpx;
+  line-height: 88rpx;
+}
+.bind_cell image{
+  width:14rpx;
+  height:28rpx;
+  position:absolute;
+  right:0;
+  top:50%;
+  margin-top:-14rpx;
+  z-index: 10
+}
+.bind_cell .addressPicker{
+  overflow:hidden;
+}
+.bind_cell .addressPicker .picker{
+  width:100%;
+  height:88rpx;
+  line-height:88rpx;
+}
+.bind_cell .addressPicker .picker.active{
+  color:#666 !important;
+}
+.notopPad{
+  padding-top:0;
+  padding-bottom:0;
+  padding-right:40rpx;
+}

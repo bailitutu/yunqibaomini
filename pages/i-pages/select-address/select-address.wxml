@@ -1,0 +1,17 @@
+
+<scroll-view scroll-y='true' class='body plr-20 mb-20' wx:if='{{isReady}}'>
+  <view class='cell address_cell bg-one mt-20' wx:for='{{addressList}}' wx:key='{{index}}' catchtap='selectAddress' data-id='{{item.regid}}' data-address='{{item.province}}{{item.city}}{{item.region}}{{item.address}}'>
+      <text class='address c-333 f14 one_line'>{{item.province}}{{item.city}}{{item.region}}{{item.address}}</text>
+      <view class='c-999 f13 user_info'><text>{{item.regname}}</text><text class='user_phone'>{{item.regphone}}</text></view>
+      <view class='select_address' wx:if='{{selectAddressId == item.regid}}'>
+        <image src='/img/i_selected.png'></image>
+      </view> 
+  </view>
+</scroll-view>
+
+
+
+
+
+
+

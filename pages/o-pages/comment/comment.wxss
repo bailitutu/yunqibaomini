@@ -1,0 +1,119 @@
+/* pages/o-pages/assess/assess.wxss */
+.top_tips{
+  height:46rpx;
+  width:100%;
+  line-height: 46rpx;
+  background:#C4EBED;
+}
+.top_tips text{
+  text-align: center;
+  display: block;
+  height:100%;
+  line-height: 46rpx;
+  opacity: 0.8;
+}
+
+.section{
+  width:100%;
+  padding-bottom:60rpx;
+}
+
+
+.d_cell{
+  padding:0 20rpx;
+}
+
+.d_cell .d_inner{
+  height:84rpx;
+  line-height: 84rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+  border-bottom:1px solid #e9e9e9;
+}
+.d_cell .d_inner:last-child{
+  border:none;
+}
+
+.d_cell_title,.com_title{
+  height:84rpx;
+  width:100%;
+  line-height: 84rpx;
+  position: relative;
+  padding:0 20rpx;
+}
+ .com_title::after{
+  content: '';
+  width:2px;
+  height:32rpx;
+  background:  #109ba6;
+  position: absolute;
+  top:50%;
+  left:0;
+  z-index: 1;
+  margin-top:-16rpx;
+
+} 
+
+
+
+.d_cell_content{
+  padding:0 20rpx;
+}
+.d_cell_content text{
+  display: block;
+  padding:20rpx 0;
+  line-height: 44rpx;
+  border-top:1px solid #e9e9e9;
+}
+.com_title text{
+  display: block;
+  border-bottom:1px solid #e9e9e9;
+}
+.com_textarea{
+  padding:20rpx;  
+  background: #fff;
+}
+.com_textarea textarea{
+  height:204rpx;
+  box-sizing: border-box;
+  width:100%;
+  background: #F8FEFE;
+  border-radius: 2rpx;
+  padding:20rpx;
+}
+.com_btns{
+  width:100%;
+  padding:20rpx 20rpx 40rpx;
+}
+.com_btn_box{
+  width:540rpx;
+  height:70rpx;
+  margin:0 auto;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:space-around;
+  align-content: space-around;
+}
+.com_btn_box .g_btn{
+  flex-grow: 1;
+  width:200rpx;
+  height:70rpx;
+  line-height: 70rpx;
+}
+.com_btn_box .g_btn:first-child{
+  margin-right:34rpx;
+}
+.com_btn_box .g_btn:last-child{
+  margin-left:34rpx;
+}
+
+
+
+
+

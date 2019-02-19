@@ -1,0 +1,33 @@
+<!--pages/supply/supply.wxml-->
+  <import src='/components/nocontent/nocontent.wxml' />
+  <view wx:if='{{isReady && supplyList.length == 0}}'>
+    <template is='nocontet' data='{{noContentTips:"暂无供应点"}}'></template>
+  </view>  
+
+<scroll-view scroll-y='{{!showFilter && !selectStatus }}' class='supply_list '>
+  <view class='cell supply_item' bindtap='checkSupply' wx:if='{{supplyList.length > 0}}' wx:for='{{supplyList}}' wx:key='supply' data-id='{{item.supplyid}}' >
+      <view class='supply_img'>
+        <image src='{{imgBaseUrl + item.img}}'></image>
+      </view>
+      <view class='supply_detail'>
+          <view class='sup_foo'>
+            <text class='f15 c-333'>{{item.name}}</text>
+             <view class='supply_distance'>
+                <image src='/img/distance_icon.png'></image>
+                <text class='f13 c-one'>{{item.distance}}</text>
+              </view>
+           </view>
+           <view class='f12 suplly_brands'><text>经营品牌:</text><text wx:if='{{item.brandList.length>0}}' wx:for='{{item.brandList}}' wx:key='goods' wx:for-item='cell'>{{cell}}</text>
+           </view> 
+          <view class='sup_foo'><text class='f12 c-333'> 配送区域：{{item.scope}}</text><text class='f12 {{ item.status =="营业中" ? "c-one" : "c-999"}}'>{{item.status}}</text> </view>
+      </view> 
+  </view>
+</scroll-view>
+
+
+
+
+
+
+
+

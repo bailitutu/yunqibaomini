@@ -1,0 +1,71 @@
+
+<view class='body plr-20 pb-footer' wx:if='{{isReady}}'>
+  <view catchtap='checkDesc' class='rec_desc f12 c-333'>充值前请仔细阅读<text  class='c-one'>《交易协议》</text></view>
+  <view class='cell recharge_cell '>
+      <text class='c-333'>充值金额</text>
+      <view class='bb-one mt-20'>
+        <input type='digit' class='f15 c-333' value='{{rechargeMoney ? "￥"+ rechargeMoney : "￥0.00" }}' bindinput='inputMoney' placeholder='请选择充值金额' disabled='disabled'></input>
+      </view>
+  </view>
+
+  <view class='cell discounts_cell mt-20' >
+      <view class='discounts_title'>
+        <text class='f15 c-333'>{{couponsList1.specifications}}</text>
+      </view>
+      <view class='discounts_list'>
+        <view class='discounts_li c-white' wx:for='{{ couponsList1.coList}}' wx:key='list1' wx:for-item='item1' catchtap='selectPrice' data-type='{{item1.specifications}}' data-price='{{item1.money}}'>
+          
+          <image class='bg' src='/img/re_item_bg.png'></image>
+          <image class='select_icon' wx:if='{{ rechargeMoney == item1.money && re_type == item1.specifications }}' src='/img/discounts_selected.png'></image>
+          
+          <view class='discount_block'>
+           <text class='re_price '>￥{{item1.money}}</text>
+            <text class='re_discount f12'>{{item1.discount}}折优惠券x{{item1.num}}</text>
+          </view>
+        </view>
+            
+      </view>
+  </view>
+
+   <view class='cell discounts_cell mt-20' >
+      <view class='discounts_title'>
+        <text class='f15 c-333'>{{couponsList2.specifications}}</text>
+      </view>
+      <view class='discounts_list'>
+          <view class='discounts_li c-white' wx:for='{{ couponsList2.coList}}' wx:key='list2' wx:for-item='item2' catchtap='selectPrice' data-type='{{item2.specifications}}' data-price='{{item2.money}}'>
+          
+          <image class='bg' src='/img/re_item_bg.png'></image>
+          <image class='select_icon' wx:if='{{ rechargeMoney == item2.money && re_type == item2.specifications }}' src='/img/discounts_selected.png'></image>
+          
+          <view class='discount_block'>
+           <text class='re_price '>￥{{item2.money}}</text>
+            <text class='re_discount f12'>{{item2.discount}}折优惠券x{{item2.num}}</text>
+          </view>
+        </view>
+      </view>
+  </view>
+   <view class='cell discounts_cell mt-20' >
+      <view class='discounts_title'>
+        <text class='f15 c-333'>{{couponsList3.specifications}}</text>
+      </view>
+      <view class='discounts_list'>
+        <view class='discounts_li c-white' wx:for='{{ couponsList3.coList}}' wx:key='list3' wx:for-item='item3' catchtap='selectPrice' data-type='{{item3.specifications}}' data-price='{{item3.money}}'>
+          
+          <image class='bg' src='/img/re_item_bg.png'></image>
+          <image class='select_icon' wx:if='{{ rechargeMoney == item3.money && re_type == item3.specifications }}' src='/img/discounts_selected.png'></image>
+          
+          <view class='discount_block'>
+           <text class='re_price '>￥{{item3.money}}</text>
+            <text class='re_discount f12'>{{item3.discount}}折优惠券x{{item3.num}}</text>
+          </view>
+        </view>
+        
+      </view>
+  </view>
+
+</view>
+<view class='f_btn_item' catchtap='rechargeFn'>
+  <button class='btn f_btn' >
+    微信支付
+  </button>
+</view>

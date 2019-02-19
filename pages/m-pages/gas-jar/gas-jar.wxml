@@ -1,0 +1,18 @@
+<!--pages/m-pages/gas-jar/gas-jar.wxml-->
+  <import src='/components/nocontent/nocontent.wxml' />
+<view class='body item' wx:if='{{isReady}}'>
+
+    <view wx:if='{{gasJarList.length == 0}}'>
+      <template is='nocontet' data='{{noContentTips}}'></template>
+    </view>
+
+
+  <view class='cell gas_cell mt-20'  wx:if='{{gasJarList.length > 0}}' data-id='{{item.propertyId}}'  wx:for='{{gasJarList}}' wx:key='index'  bindtap='checkGasjar'>
+    <image src='{{imgBase + item.img}}'></image>
+    <view class='gas_cell_inner'>
+      <text class='f15 c-333'>{{item.brand}}</text>
+      <text class='f13 c-999 mt-15'> 规格：{{item.specifications}} {{item.purpose}}</text>
+      <text class='f13 c-999 mt-15 one_line'>开户供应点：{{item.parentconpany}}</text>
+    </view>
+  </view>
+</view>

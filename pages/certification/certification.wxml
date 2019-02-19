@@ -1,0 +1,103 @@
+<scroll-view class='body plr-20' scroll-y='true'>
+  <text class='top_tip f13 c-one'>特种设备专业平台，行业需要，恭请谅解！</text>
+  <view class='cell user_info mt-20'>
+    <view class='user_title'>
+        <text class='f14 c-999 bb-one'>身份证信息</text>
+    </view> 
+    <view class='user_upload'>
+        <view class='upload_cell' bindtap='uploadImage'  >
+          <view class='upload_item' wx:if='{{ idCardA.length == 0}}'>
+            <image class='upload_img' src='/img/upload.png'></image>
+            <text class='db f12 c-666 mt-15'>点击上传身份证正面</text>
+          </view>
+          <view class='img_item'  wx:if='{{ idCardA.length>0}}'>
+            <image class='upload_img' src='{{ idCardA.length ? idCardA : ""}}'></image>
+          </view>
+        </view> 
+    </view> 
+
+     <view class='plr-20'>
+      <view class='d_inner'>
+          <label class='f14 c-999'>姓名</label>
+          <text class='f14 c-333'>{{userName}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>性别</label>
+          <text class='f14 c-333'>{{userSex}}</text>
+      </view>
+            <view class='d_inner'>
+          <label class='f14 c-999'>身份证号</label>
+          <text class='f14 c-333'>{{userIdCard}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>居住地址：</label>
+          <view class='address_detail'>
+            <text class='f14 c-333'>{{userAddress}}</text>
+          </view>
+      </view>
+     </view>
+
+
+
+  </view>
+
+  <!-- <view class='cell bg-one mt-20 plr-20'>
+      <view class='d_inner'>
+          <label class='f14 c-999'>姓名</label>
+          <text class='f14 c-333'>{{userName}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>性别</label>
+          <text class='f14 c-333'>{{userSex}}</text>
+      </view>
+            <view class='d_inner'>
+          <label class='f14 c-999'>身份证号</label>
+          <text class='f14 c-333'>{{userIdCard}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>居住地址：</label>
+          <view class='address_detail'>
+          <text class='f14 c-333'>{{userAddress}}</text>
+          </view>
+      </view>
+      
+  </view> -->
+    <view class='cell bind_item mt-20'>
+      <view class='bind_cell'>
+          <label class='f14 c-999'>收货人姓名</label>
+          <input type='text' placeholder='请输入收货人姓名' value='{{address_name}}' bindinput='changeName' class='f14 c-333'/>
+      </view> 
+      <view class='bind_cell'>
+          <label class='f14 c-999'>电话</label>
+          <input type='number' placeholder='请输入电话号码' value='{{address_phone}}' bindinput='changePhone' maxlength='11' class='f14 c-333'/>
+      </view> 
+      <view class='bind_cell notopPad'>
+          <label class='f14 c-999'>地区</label>
+          <picker class='addressPicker' mode="region" bindchange="bindRegionChange" value="{{address_region}}" >
+            <view class='picker f14  one_line {{ hasSelect ? "c-666" : "c-999"}}' >
+               {{address_region[0]}}{{address_region[1]}}{{address_region[2]}} 
+            </view>
+          </picker>
+          <image src='/img/goTo_icon.png' ></image>
+      </view> 
+      <view class='bind_cell'>
+          <label class='f14 c-999'>详细地址</label>
+          <input type='text' placeholder='例：16号楼1601室' bindinput='changeDetail' value='{{address_Detail}}' class='f14 c-333'/>
+      </view> 
+
+    </view>
+
+    <view class='cell bind_item mt-20'>
+      <view class='bind_cell'>
+          <label class='f14 c-999'>邀请码</label>
+          <input type='text' placeholder='请输入邀请码（非必填）' value='{{userInvestCode}}' bindinput='changeCode' class='f14 c-333'/>
+      </view> 
+    </view>
+    <button class='btn full_btn mt-40 mb-40' catchtap='submitData'>下一步</button>
+</scroll-view>
+
+
+
+
+
+

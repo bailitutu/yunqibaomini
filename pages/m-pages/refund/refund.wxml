@@ -1,0 +1,38 @@
+<view class='body plr-20' wx:if='{{isReady}}'>
+  <view class='cell d_cell mt-20'>
+    <view class='d_inner'>
+        <label class='f14 c-999'>退款金额</label>
+        <text class='f14 c-333'>￥{{refundMoney}}</text>
+    </view>
+    <view class='d_inner'>
+        <label class='f14 c-999'>退款银行</label>
+        <text class='f14 c-333'>工商银行</text>
+    </view>
+  </view> 
+
+ <view class='cell bind_item mt-20'>
+     <view class='bind_cell'>
+        <label class='f14 c-999'>持卡人</label>
+        <input type='text' placeholder='请输入持卡人' value='{{refundName}}' bindinput='changeInput' data-param='refundName' class='f14 c-333'/>
+    </view> 
+    <view class='bind_cell'>
+        <label class='f14 c-999'>开户行</label>
+        <input type='text' placeholder='请输入开户行'  value='{{refundBankName}}' bindinput='changeInput' data-param='refundBankName' class='f14 c-333'/>
+    </view> 
+    <view class='bind_cell'>
+        <label class='f14 c-999'>退款银行卡</label>
+        <input type='number' maxlength='19' placeholder='请输入退款银行卡' value='{{refundCard}}' bindinput='changeInput' data-param='refundCard' class='f14 c-333'/>
+    </view> 
+    <view class='bind_cell'>
+        <label class='f14 c-999'>所在城市</label>
+        <input type='text' maxlength='19' placeholder='请输入开卡城市' value='{{city}}'  data-param='city' bindinput='changeInput' class='f14 c-333'/>
+    </view> 
+  </view>
+
+  <view class='tips f12 c-danger'>注: 请确保所填银行卡信息正确无误（推荐使用工商银行卡），退款金额将于15个工作日内到账。</view>
+        <button class='btn full_btn mb-40 button-hover' style='margin-top:120rpx;' catchtap='applyRefund' type='button' form-type='submit'>申请退款</button>
+
+</view>
+
+
+

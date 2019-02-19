@@ -1,0 +1,5 @@
+<!--pages/o-pages/distributor/distributor.wxml-->
+
+<import src="/components/qualification/qualification.wxml"/>
+
+<template is="qualification"  data="{{infoList,imgInfo,isReady}}"></template>

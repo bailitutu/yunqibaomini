@@ -1,0 +1,361 @@
+/* pages/o-pages/detail-watingRob/detail-watingRob.wxss */
+
+
+
+
+.btn_group{
+  width:100%;
+  display: -webkit-flex;
+  display: flex;
+  text-align: center;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap:nowrap;
+}
+.btn_group button{
+  height:72rpx;
+  line-height: 72rpx;
+}
+.cancel_btn{
+  width:300rpx;
+  margin:0 auto;
+}
+.normal_btn{
+  width:200rpx;
+  margin:0 20rpx;
+}
+.small_btn{
+  width:150rpx;
+  margin:0 20rpx;
+}
+
+.o-head{
+  padding:40rpx 20rpx 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+
+.map_cell{
+  height:380rpx;
+  overflow:hidden;
+}
+/* 等待接单 */
+.o-head-timing{
+  height:136rpx;
+  width:136rpx;
+  background: #fff;
+  margin:0 auto;
+  position: relative;
+  overflow:hidden;
+}
+.o-head-timing image{
+  position: absolute;
+  top:0;
+  left:0;
+  width:136rpx;
+  height:136rpx;
+  animation: 5s timing linear infinite forwards;
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+@keyframes  timing{
+  from{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+
+  }to{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+
+  }
+}
+@-webkit-keyframes timing{
+  from{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+
+  }to{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+
+  }
+}
+
+
+.o-head-timing text{
+  width:100%;
+  height:100%;
+  line-height: 148rpx;
+  display: block;
+}
+
+
+
+
+
+/* 已送达的时间 */
+.o-head-timer{
+  height:136rpx;
+  width:136rpx;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border:1px solid #109ba6;
+  border-radius: 50%;
+  background:#fff;
+}
+.o-head-timer text{
+  margin-top:8rpx;
+  
+}
+
+
+
+
+.o-goods-info{
+  height:188rpx;
+  width:100%;
+  padding:20rpx 0;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.o-goods-img image{
+  width:148rpx;
+  height:148rpx;
+  flex-grow: 1;
+  border-radius: 8rpx;
+  border:1px solid #109ba6;
+}
+
+.o-good-detail{
+  flex-grow: 3;
+  text-align: left;
+  display: flex;
+  margin-left:30rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: stretch;
+}
+.o-good-detail>view{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: stretch;
+}
+
+
+.o-user-cell{
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  align-content: space-between;
+  padding:20rpx;
+}
+
+.o-user-position{
+  
+  flex-flow: 1;
+  width:40rpx;
+  align-items: stretch;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.o-user-info{
+  flex: 4;
+}
+.o-user-name{
+  padding-left:50rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.o-user-address{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin-top:10rpx;
+}
+.o-user-position{
+  width:36rpx;
+  height: 40rpx;
+}
+
+.o-user-address text{
+  margin-left:20rpx;
+}
+
+
+.icon_btn{
+  height:88rpx;
+  line-height: 88rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.icon_btn_icon{
+  width:36rpx;
+  height:36rpx;
+  margin-right:20rpx; 
+}
+
+.o-supply-title{
+  
+  height:80rpx;
+  line-height: 90rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+}
+.o-supply-title image{
+  width:14rpx;
+  height:28rpx;
+}
+
+
+.o-distributor-info{
+  height:144rpx;
+  width:100%;
+  border-top:1px solid #e9e9e9;
+}
+.o-distributor-info {
+  padding:20rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: stretch;
+}
+.o-distributor-info .o-dis-head{
+  width:102rpx;
+  height:102rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.o-distributor-info .o-dis-head image{
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.o-dis-det{
+  flex:3;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: stretch;
+  text-align: left;
+  margin-left:20rpx;
+}
+
+.renzheng_img{
+  width:30rpx;
+  height:30rpx;
+  margin-left:20rpx;
+  vertical-align: middle;
+}
+
+.o-distributor-info .o-dis-btn{
+  display: flex;
+  flex-flow: 2;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  align-content: center;
+  }
+  .o-distributor-info .o-dis-btn view{
+    height:100%;
+    line-height: 102rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.o-distributor-info .o-dis-btn view:first-child{
+  border-right:1px solid #e9e9e9;
+}
+
+.o-distributor-info .o-dis-btn image{
+  width:44rpx;
+  height:44rpx;
+  margin:0 40rpx;
+}
+.o-distributor-info .o-dis-btn image:first-child{
+  width:46rpx;
+}
+
+.y_alert{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100000;
+  display: -webkit-flex;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  overflow:hidden;
+}
+.y_alert .y_alert_inner{
+  width:710rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  overflow:hidden;
+}
+.alert_content{
+  padding:70rpx 0;
+}
+.alert_content image{
+  width:82rpx;
+  height:76rpx;
+}
+.y_alert-btns{
+  border-top:1px solid #e9e9e9;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow:hidden;
+}
+.y_alert-btns button{
+  width:50%;
+  height:100rpx;
+  line-height: 100rpx;
+  border-radius: 0;
+  font-size:36rpx;
+  text-align: center;
+}
+.y_alert-btns .cancel_btn{
+  color:#999999;
+  border-right:1px solid #e9e9e9;
+}
+.y_alert-btns .confirm_btn{
+  color:#4094fd;
+}

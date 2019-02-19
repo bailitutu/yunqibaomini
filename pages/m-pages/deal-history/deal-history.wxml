@@ -1,0 +1,40 @@
+<!--pages/m-pages/deal-history/deal-history.wxml-->
+<import src='/components/nocontent/nocontent.wxml' />
+
+<view class='body plr-20' wx:if='{{isReady}}'>
+  <view class='cell data_cell mt-20'>
+    <view class='data_inner'>
+      <image src='/img/data_icon.png'></image>
+     
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="{{endDate}}" bindchange="bindDateChange">
+        <view class="picker f15 c-666">
+         {{date}}
+        </view>
+      </picker>
+
+    </view>
+  </view>
+
+  <view class='no_con' wx:if='{{historyList.length == 0}}'>
+      <template is='nocontet' data='{{noContentTips:"暂无交易记录"}}'></template>
+    </view>
+  <view class='cell history_cell mt-20'>
+
+    <view class='history_item' wx:if='{{historyList.length > 0}}' wx:for='{{historyList}}' wx:key='index' data-id='{{item.id}}' catchtap='checkHistoryDetail'> 
+        <view class='history_icon'>
+           <image src='{{item.comeOut ? "/img/deal_icon4.png" : "/img/deal_icon3.png"}}'></image> 
+        </view>
+        <view class='history_info'>
+          <text class='f14 c-666 db'>{{item.paymentMethod}} <text class='f13'>{{item.type}}</text></text>
+          <text class='f12 c-999 db mt-15'>{{item.createtime}}</text>
+        </view>
+        <view class='history_price'>
+          <text class='f16 c-333'>{{item.comeOut ? '-' : '+'}}{{item.amount}}</text>
+        </view>
+    </view>
+  </view>
+</view>
+
+
+
+

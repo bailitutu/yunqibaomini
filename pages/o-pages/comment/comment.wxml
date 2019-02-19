@@ -1,0 +1,69 @@
+<!--pages/o-pages/assess/assess.wxml-->
+
+<view class='body' wx:if='{{isReady}}'>
+  <!-- <view class='top_tips'><text class='f12 c-one'>用户使用安全常识</text></view> -->
+  <view class='section plr-20'>
+    <view class='cell d_cell mt-20'>
+      <view class='d_inner'>
+          <label class='f14 c-999'>软管老化情况</label>
+          <text class='f14 c-333'>{{checkInfo.aging == 0 ? "良好" : "老化"}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>减压阀情况</label>
+          <text class='f14 c-333'>{{checkInfo.pressure == 0 ? "良好" : "老化"}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>软管卡子</label>
+          <text class='f14 c-333'>{{checkInfo.clamp == 0 ? "有" : "无"}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>燃气用具安装</label>
+          <text class='f14 c-333'>{{checkInfo.installation == 0 ? "规范" : "不合格"}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>室内通风情况</label>
+          <text class='f14 c-333'>{{checkInfo.ventilation == 0 ? "好" : "差"}}</text>
+      </view>
+      <view class='d_inner'>
+          <label class='f14 c-999'>漏气报警器</label>
+          <text class='f14 c-333'>{{checkInfo.leakage == 0 ? "已安装" : "未安装"}}</text>
+      </view>
+      <view class='d_inner' wx:if='{{checkInfo.fillingCode}}'>
+          <label class='f14 c-999' wx:if='{{checkInfo.fillingCode}}'>气瓶条码/钢瓶号</label>
+          <text class='f14 c-333'>{{checkInfo.fillingCode}}</text>
+      </view>
+   </view> 
+  
+
+    <view class='cell mt-20'>
+      <view class="d_cell_title">
+        <text class='f14 c-999'>安检意见</text>
+      </view>
+      <view class='d_cell_content'>
+        <text class='f14 c-333'>{{checkInfo.security}}</text>
+      </view> 
+    </view>
+
+    <view class='cell mt-20'>
+      <view class='com_title'>
+        <text class='f14 c-999'>评价配送员</text>
+      </view>
+      <view class='com_textarea '>
+        <textarea class='f14 c-333' value='{{commentContent}}' bindinput='inputComment' disabled='{{!noComment}}'></textarea>
+      </view>
+      <view  class='com_btns' wx:if='{{noComment}}'>
+        <view class='com_btn_box'>
+          <!-- <button class='btn g_btn f14 c-one' catchtap='checkPassFn' data-audit='1'>未安检</button> -->
+          <button class='btn g_btn f14 c-one' catchtap='checkHandle'>审核通过</button>
+        </view>
+      </view> 
+    </view>
+
+
+  
+  </view>
+
+</view>
+
+
+

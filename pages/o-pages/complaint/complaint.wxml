@@ -1,0 +1,24 @@
+<!--pages/o-pages/complaint/complaint.wxml-->
+
+<view class='body plr-20' wx:if='{{isReady}}' >
+  <view class='cell s_cell mt-20'>
+    <view class='s_item'>
+      <text class='s_title f14 c-999'>配送员姓名</text>
+      <input  disabled='disabled' value='{{transitName}}' catchchange='nameChange' class='s_value f14 c-333'></input>
+    </view>
+    <view class='s_item'>
+      <text class='s_title f14 c-999'>所属配送站</text>
+      <input class='s_value f14 c-333' disabled='disabled' value='{{transitSupply}}' catchchange='supplyChange' ></input>
+    </view>
+  
+  </view>
+  <view class='cell com_cell mt-20'>
+      <text class='com_title f14 c-999'>投诉内容</text>
+      <textarea name='complaint_centent' value='{{complaintContent}}' bindinput='contentChange' class='com_content f14 c-333'>
+      </textarea>
+  </view>
+
+  <button class='btn full_btn mt-60' catchtap='submitComplaint'>提交</button>
+</view>
+
+

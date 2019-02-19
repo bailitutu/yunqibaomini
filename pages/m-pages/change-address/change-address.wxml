@@ -1,0 +1,4 @@
+
+<import src='/components/address/address.wxml' />
+<template is="address" data="{{isReady,userName,userPhone,userDetail,region,hasSelect,btnText}}"></template>
+

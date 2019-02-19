@@ -1,0 +1,74 @@
+.d_cell{
+  padding:0 20rpx;
+}
+
+.d_cell .d_inner{
+  height:84rpx;
+  line-height: 84rpx;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+  border-bottom:1px solid #e9e9e9;
+}
+.d_cell .d_inner:last-child{
+  border:none;
+}
+
+.bind_item{
+  padding:0 20rpx;
+}
+.bind_cell {
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #e9e9e9;
+  position: relative;
+  padding: 20rpx 100rpx 20rpx 224rpx;
+}
+.bind_cell:last-child{
+  border:none;
+}
+.bind_cell>label{
+  width:200rpx;
+  height:90rpx;
+  position: absolute;
+  left: 0;
+  top:0;
+  line-height: 90rpx;
+}
+.bind_cell>input{
+  width:100%;
+}
+.bind_cell>image{
+  width:28rpx;
+  height:48rpx;
+  position:absolute;
+  right:0;
+  top:50%;
+  margin-top:-24rpx;
+  z-index: 10
+}
+.bind_cell .yzm_btn{
+  height:100%;
+  width:180rpx;
+  padding:14rpx 0;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index: 100;
+}
+
+.bind_cell .yzm_btn>view{
+  height:100%;
+  width: 100%;
+  line-height: 62rpx;
+  margin:0;
+  text-align: center;
+  border-left:1px solid #e9e9e9;
+}
+.tips{
+  line-height: 40rpx;
+  margin-top:20rpx;
+}

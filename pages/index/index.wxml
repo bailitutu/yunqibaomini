@@ -1,0 +1,82 @@
+<view class='page' wx:if='{{isReady}}'>
+     <view class='top-bar bg-main'>
+      <view class='top-bar-left' bindtap='selectAddress'>
+        <view class='top-bar-icon bar-l' >
+        <image src='/img/icon_position.png'></image>
+      </view>
+      <text class='f14 c-white one_line address_title'>{{curr_address ? curr_address : '定位中...'}}</text>
+      </view>
+  
+      <view class='top-bar-icon bar-r' bindtap='goToPage' data-url='/pages/i-pages/additional/additional'>
+        <image src='/img/icon_more.png'></image>
+      </view>
+    </view>
+    <view class='top-banner'>
+      <swiper  circular='true' indicator-dots='true' autoplay='true' indicator-color="#65C0C7"  indicator-active-color="#1D99A3">
+        <block>
+          <swiper-item  wx:for='{{imgList}}' catchtap='bannerHandle'  wx:key='imgLi'  data-id='{{item.num}}'>
+            <image  src="{{imgBase + item.img}}" class="slide-image" />          
+          </swiper-item>
+        </block>
+      </swiper>
+    </view> 
+
+    <view class='tool_item bg-one'>
+      <view class='tool_cell' bindtap='equitySwapFn'>
+          <image src='/img/tool_icon1.png'></image>
+          <text class='f13 c-333'>产权置换</text>
+      </view>
+      <view class='tool_cell'  bindtap='goToPage' data-check='true' data-url='/pages/m-pages/gas-jar/gas-jar'>
+          <image src='/img/tool_icon2.png'></image>
+          <text class='f13 c-333'>气瓶退还</text>
+      </view>
+      <view class='tool_cell' bindtap='goToPage' data-check='true' data-url='/pages/i-pages/gas-warn/gas-warn'>
+          <image src='/img/tool_icon4.png'></image>
+          <text class='f13 c-333'>报警器对接</text>
+      </view>
+      <view class='tool_cell' bindtap='goToPage' data-url='/pages/i-pages/league/league'>
+          <image src='/img/tool_icon3.png'></image>
+          <text class='f13 c-333'>合作加盟</text>
+      </view>
+    
+    </view>
+
+    <view class='pla_title plr-20 bg-one'>
+      <text>我要下单</text>
+    </view>
+
+ <scroll-view class='body' scroll-y='{{!hasBonus}}' >
+    <view class='goods_item '>
+
+       <view class='no_goods' wx:if='{{specList.length == 0}}'>
+          <view class='no_img'>
+            <image src='/img/logo.png'></image>
+          </view>
+          <text class='f13 c-999 mt-20'>赶快加盟，本区域还没有加盟商入驻哦~</text>
+      </view>  
+       <view class='goods_list plr-20 bg-one' wx:if='{{specList.length >0 }}'>
+         <view class='goods_cell ' wx:for='{{specList}}' wx:key='spec' >
+          <view class='goods_img'>
+            <image src='{{imgBase + item.img}}'></image>
+          </view>
+          <view class='goods_attr c-333 f13'>
+            <text>规格型号：{{item.specName}}</text>
+            <text> 充气重量:{{item.inflatableweight}}</text>
+            <text>空瓶重量：{{item.bottleweight}}</text>
+          </view>
+          <view class='goods_btns'>
+            <button class='btn order_btn space f14' bindtap="openingFn"  data-spec='{{item.specifications}}'>无瓶开户</button>
+            <button class='btn order_btn  f14' bindtap='changeGasFn'  data-spec='{{item.specifications}}'>有瓶换气</button>
+          </view>
+        </view>
+  
+      </view> 
+    </view>
+</scroll-view> 
+
+</view>
+<view class='packet_item' wx:if='{{hasBonus}}' catchtap='noGetBonus'>
+  <view class='bonus_item ' catchtap='getBonus'>
+    <image src='/img/bonus.png'></image>
+  </view>
+</view> 

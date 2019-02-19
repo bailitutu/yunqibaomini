@@ -1,0 +1,4 @@
+<!--pages/s-pages/select-discounts/select-discounts.wxml-->
+
+<import src='/components/discount/discount.wxml' />
+<template is='discount'  data='{{isReady,discountList,selectDiscountId,phone}}'></template>

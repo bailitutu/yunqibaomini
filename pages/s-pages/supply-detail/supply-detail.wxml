@@ -1,0 +1,143 @@
+<!--pages/s-pages/supply-detail/supply-detail.wxml-->
+
+<view class='supply_body' wx:if='{{isReady}}'>
+
+  <view class='supply_info_item bg-main'>
+      <view class='supply_detail'>
+          <view class='supply-detail-inner'>
+            <image class='supply_headImg' src='{{imgBaseUrl+shopInfo.supplyImg}}'></image>
+            <view class='supply_info_detail c-white' >
+            <view class='flexlr'>
+              <text class='f16'>{{shopInfo.supplyname}}</text>
+              <text class='f12'>{{shopInfo.distance}}</text>
+            </view>
+              <view class='f12 brandList'><text>经营品牌：</text><text wx:for='{{shopInfo.brandList}}' wx:key='brand'>{{item}}</text></view> 
+              <view class='flexlr f12 c-white'><text>配送区域：{{shopInfo.scop}}</text><text>{{shopInfo.status}}</text></view>
+            </view>
+          </view>
+      </view>
+  </view>
+  <view class='supply_info_content'>
+    <view class='supply_info_inner'>
+      <view class='supply_tab f16 c-333'>
+          <view bindtap='tabClick' data-id="tab1" >
+            <text class='{{ currTab == "tab1" ? "active" : ""}}'>产品</text>
+          </view>
+          <view bindtap='tabClick' data-id="tab2">
+            <text class='{{ currTab == "tab2" ? "active" : ""}}'>商户</text>
+          </view>
+      </view>
+      <view class='supply_tab_inner tab_goods_item' wx:if="{{currTab == 'tab1'}}">
+          <view class='tab_menu f14 c-999'>
+            <view class='{{ orderType == 1 ? "active" :""}}' catchtap='selectOrderType' data-id='1' ><text>有瓶换气</text></view>
+            <!-- <view class='{{ orderType == 2 ? "active" :""}}'  catchtap='selectOrderType' data-id='2'><text>产权置换</text></view> -->
+            <view class='{{ orderType == 4 ? "active" :""}}'  catchtap='selectOrderType' data-id='4'><text>无瓶开户</text></view>
+          </view>
+          <scroll-view scroll-y='true'  class='tab_goods'> 
+            <!-- 商品 -->
+            <view class='goods_cell' wx:for='{{shopGoods}}' wx:key='goods' data-id='{{item.id}}'>
+                <image src='{{imgBaseUrl + item.img}}' style='border:1px solid #b7e1e4'></image>
+                <view class='good_info f12 c-999'>
+                  <text>{{item.brand}}</text>
+                  <text>规格：{{item.specifications}}</text>
+                   <text>起价:<text class='c-danger'>￥{{item.price}}</text></text> 
+                </view>
+                <view class='num_tool {{item.shopNum > 0 ? "active" : ""}}'>
+                    <view wx:if='{{item.shopNum > 0}}' class='num_tool_btn' catchtap='noAddShopNum' data-num='{{item.shopNum}}' data-index='{{index}}'>
+                      <image src='/img/num_noAdd.png'></image>                    
+                    </view>
+                    <view wx:if='{{item.shopNum > 0}}'>
+                      <text class='f13 c-666'>{{item.shopNum}}</text>
+                    </view>
+                    <view class='num_tool_btn' catchtap='addShopNum' data-num='{{item.shopNum}}' data-index='{{index}}'>
+                      <image src='/img/num_add.png'></image>
+                    </view>
+                </view>
+            </view>
+            <!-- 商品 -->
+          </scroll-view>
+      </view>
+     
+      <view class='supply_tab_inner tab_shops_item' wx:if="{{currTab == 'tab2'}}">
+        <view class='shops_inner f13 c-333 plr-20'>
+            <view class='shops_cell'>
+                <view><image style='width:30rpx;height:40rpx;' src='/img/shops_location.png'></image></view>
+                <text class='one_line'>地址：{{shopDetail.province}}{{shopDetail.city}}{{shopDetail.region}}{{shopDetail.address}}</text>
+            </view>
+            <view class='shops_more' catchtap='callPhone' data-phone='{{shopDetail.customService}}'>
+                <view><image style='width:40rpx;height:40rpx;' src='/img/shops_phone.png'></image></view>
+                <text>客服电话：{{shopDetail.customService}}</text>
+                <image class='goTo_icon' src='/img/goTo_icon.png'></image>
+            </view>
+            <view class='shops_more ' bindtap='checkShopQual'>
+                <view><image style='width:32rpx;height:40rpx;' src='/img/shops_renzheng.png'></image></view>
+                <text>查看运营资质</text>
+                <image class='goTo_icon' src='/img/goTo_icon.png'></image>
+            </view>
+            <view class='shops_cell'>
+                <view><image style='width:40rpx;height:40rpx;' src='/img/shops_time.png'></image></view>
+                <text>充装单位：{{shopDetail.filling}}</text>
+            </view>
+            <view class='shops_cell'>
+                <view><image style='width:40rpx;height:40rpx;' src='/img/shops_time.png'></image></view>
+                <text>运营时间：{{shopDetail.openTime}}-{{shopDetail.endTime}}</text>
+            </view>
+            <view class='shops_more ' bindtap='callPhone' data-phone='{{ shopDetail.supervision}}'>
+                <view><image style='width:32rpx;height:40rpx;' src='/img/shops_renzheng.png'></image></view>
+                <text>监督电话：{{shopDetail.supervision}}</text>
+                <image class='goTo_icon' src='/img/goTo_icon.png'></image>
+            </view>
+        </view>
+      </view> 
+    
+    </view>
+  </view>
+
+  <view class='shop_cover {{ showShopCar ? "cover" : ""}}'  >
+    <view class='shop_footer '>
+      <view class='shop_car_item' wx:if="{{showShopCar}}" >
+        <view class='shop_car_title'><text class='f16 c-333'>已选商品</text></view>
+        <scroll-view scroll-y="true" class='shop_car_list'>
+          <view class='car_cell' wx:for='{{shopGoods}}' wx:key='carGoods' wx:if='{{item.shopNum > 0}}'>
+              <view class='car_cell_info' >
+                <text class='f13 c-333'>{{item.brand}}</text>
+                <text class='f11 c-666'>{{item.specifications}} {{item.purpose}}</text>
+              </view>
+              <view class='num_tool {{item.shopNum > 0 ? "active" : ""}}'>
+                  <view wx:if='{{item.shopNum > 0}}' class='num_tool_btn' catchtap='noAddShopNum' data-num='{{item.shopNum}}' data-index='{{index}}'>
+                    <image src='/img/num_noAdd.png'></image>                    
+                  </view>
+                  <view wx:if='{{item.shopNum > 0}}'>
+                    <text class='f13 c-666'>{{item.shopNum}}</text>
+                  </view>
+                  <view class='num_tool_btn' catchtap='addShopNum' data-num='{{item.shopNum}}' data-index='{{index}}'>
+                    <image src='/img/num_add.png'></image>
+                  </view>
+              </view>
+          </view> 
+        </scroll-view>
+
+      </view>
+
+      <view class='shop_footer_item'>
+        <view class='shop_car_btn' bindtap='showScar'>
+          <image src='/img/shop_car.png'></image>
+        </view>
+
+        <view class='shop_foot_inner c-white'>
+          <view class='shop_allPrice'>
+              <text class='f15'>总计:￥{{allPrice}}</text>
+              <!-- <text class='f11'>(配送费￥{{dispatching}})</text> -->
+          </view>
+          <view class='confirmBtn f15' catchtap='confirmPlace'>
+              确认下单
+          </view>
+        </view>
+      </view>
+  
+    </view> 
+  </view>
+</view>
+
+
+

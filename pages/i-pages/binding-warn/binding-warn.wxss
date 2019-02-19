@@ -1,0 +1,16 @@
+/* pages/i-pages/binding-warn/binding-warn.wxss */
+
+.bind_cell {
+  height:90rpx;
+  display: -webkit-flex;
+  display: flex;
+  direction: row;
+  padding:20rpx;
+  line-height:50rpx; 
+}
+.bind_cell label{
+  width:204rpx;
+}
+.bind_cell input{
+    width:90%;
+}

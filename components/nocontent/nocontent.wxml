@@ -1,0 +1,6 @@
+<template name='nocontet'>
+  <view class='no_page' >
+      <image src='/img/no_content.png'></image>
+      <view class='f13 c-one'>{{noContentTips}}</view>
+  </view>
+</template>

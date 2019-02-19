@@ -1,0 +1,87 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/i-pages/payPassword/payPassword",
+    "pages/o-pages/equitySwap/equitySwap",
+    "pages/i-pages/recommend/recommend",
+    "pages/m-pages/recharge/recharge",
+    "pages/i-pages/opening/opening",
+    "pages/i-pages/openingNotes/openingNotes",
+    "pages/i-pages/purchaseNotes/purchaseNotes",
+    "pages/i-pages/league/league",
+    "pages/i-pages/changeGas/changeGas",
+    "pages/m-pages/gas-detail/gas-detail",
+    "pages/certification/certification",
+    "pages/order/order",
+    "pages/o-pages/commonSense/commonSense",
+    "pages/m-pages/refund/refund",
+    "pages/i-pages/answerTest/answerTest",
+    "pages/o-pages/orderDetail/orderDetail",
+    "pages/supply/supply",
+    "pages/m-pages/deal-history/deal-history",
+    "pages/m-pages/change-address/change-address",
+    "pages/s-pages/supply-detail/supply-detail",
+    "pages/o-pages/distributor/distributor",
+    "pages/o-pages/confirm-order/confirm-order",
+    "pages/mine/mine",
+    "pages/s-pages/select-address/select-address",
+    "pages/o-pages/comment/comment",
+    "pages/s-pages/select-discounts/select-discounts",
+    "pages/o-pages/complaint/complaint",
+    "pages/m-pages/address/address",
+    "pages/m-pages/deal-detail/deal-detail",
+    "pages/m-pages/wallet/wallet",
+    "pages/m-pages/set-password/set-password",
+    "pages/m-pages/check-password/check-password",
+    "pages/m-pages/change-password/change-password",
+    "pages/i-pages/binding-warn/binding-warn",
+    "pages/i-pages/gas-warn/gas-warn",
+    "pages/m-pages/gas-jar/gas-jar",
+    "pages/i-pages/additional/additional",
+    "pages/i-pages/select-address/select-address",
+    "pages/m-pages/add-address/add-address",
+    "pages/s-pages/supply-qual/supply-qual",
+    "pages/m-pages/my-discount/my-discount",
+    "pages/i-pages/select-coupon/select-coupon",
+    "pages/i-pages/swapNotes/swapNotes",
+    "pages/m-pages/rechargeNotes/rechargeNotes"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#109ba6",
+    "navigationBarTitleText": "运气宝",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F8FEFE"
+  },
+  "tabBar": {
+    "backgroundColor": "#109ba6",
+    "color": "#65BCC2",
+    "selectedColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "同城抢单",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index_active.png"
+      },
+      {
+        "pagePath": "pages/supply/supply",
+        "text": "供应点",
+        "iconPath": "img/supply.png",
+        "selectedIconPath": "img/supply_active.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "img/order.png",
+        "selectedIconPath": "img/order_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "img/mine.png",
+        "selectedIconPath": "img/mine_active.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+<!--pages/m-pages/wallet/wallet.wxml-->
+<view class='body plr-20' wx:if='{{isReady}}'>
+  <view class='wallet_item mt-20'>
+    <image src='/img/wallet_bg.png' class='wallet_bg'></image>
+     <view class='wallet_inner'>
+      <view class='wallet_title f14 c-white plr-20'><text >余额</text> <text catchtap='checkHistory'>交易明细</text></view>
+      <text class='f13'>￥{{myMoney}}</text>
+      <view class='wallet_btn_group'>
+        <button class='btn' bindtap='recharge'>充值</button>
+        <button class='btn' catchtap='refund'>退款</button>
+      </view>
+     </view>
+  </view>
+</view>

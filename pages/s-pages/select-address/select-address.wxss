@@ -1,0 +1,33 @@
+
+.s_address{
+  height:144rpx;
+  padding:0 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center ;
+  align-content: space-between;
+}
+
+.s_address .s_address_detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+}
+.select_address{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.select_address image.select_icon{
+  width:44rpx;
+  height:44rpx;
+}
+.select_address image.disable_icon{
+  width:120rpx;
+  height:132rpx;
+}

@@ -1,0 +1,108 @@
+/* pages/mine/mine.wxss */
+
+.userInfo{
+  width:100%;
+  position: relative;
+  height:200rpx;
+  background-color: #109ba6;
+  padding-left:220rpx;
+}
+.userHead{
+  position: absolute;
+  top:50%;
+  left:44rpx;
+  margin-top:-70rpx;
+  width:140rpx;
+  height:140rpx;
+  overflow: hidden;
+  border-radius: 50%;  
+  border:2rpx solid #7BC6CD;
+  padding:4rpx;
+}
+.userDetail{
+  padding:30rpx 0 ;
+  height:100%;
+  color:#fff;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: space-around;
+}
+.userName{
+  font-size:34rpx;
+}
+.userPhone{
+  height: 30rpx;
+  font-size:28rpx;
+}
+.userInvest{
+  font-size:28rpx;
+}
+.investCode{
+  color:#e2c688;
+}
+
+
+.mine_item{
+  overflow: hidden;
+}
+.mine_cell{
+  background: #F4F4F4;
+  overflow: hidden;
+}
+.mine_row{
+  overflow: hidden;
+  display:  -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.mine_row .mine_col:first-child{
+  margin-left:-1px;
+  margin-right:1px;
+}
+.mine_col{
+  height:200rpx;
+  width:50%;
+  background-color:#ffffff; 
+  text-align: center;
+  flex: 1;
+  box-sizing: border-box;
+  margin-bottom: 1px;
+}
+.mine_col .mine_icon{
+  width:76rpx;
+  height:76rpx;
+  display: block;
+  margin:36rpx auto 16rpx;
+}
+.mine_col text{
+  text-align: center;
+  color:#333333;
+}
+.mine_col .icon2{
+  width:58rpx;
+  height:80rpx;
+}
+.mine_col .icon3{
+  width:80rpx;
+  height:70rpx;
+}
+.mine_col .icon5{
+  width:78rpx;
+  height:78rpx;
+}
+.mine_col .icon6{
+  width:86rpx;
+  height:74rpx;
+}
+
+.exitBtn{
+  margin-top: 180rpx;
+  margin-bottom:40rpx;
+  border:none;
+}

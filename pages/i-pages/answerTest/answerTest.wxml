@@ -1,0 +1,43 @@
+
+<scroll-view class='ac_body' scroll-y='true' wx:if='{{isReady}}'>
+  <view class='ac_inner'>
+      <view class='ac_header bg-main'>
+        <view class='line'></view>
+        <view class='countdown_item bg-main' >
+            <image src='/img/countdown_bg.png'></image>
+            <view class='countdown_text'>
+              <text class='f16 c-count'>{{timeout}}秒</text>
+              <text class='f14 c-white'>倒计时</text>
+            </view>
+        </view>
+      </view>
+
+      <view class='ac_content'>
+          <view class='ac_list cell'>
+            <view class='ac_cell' wx:for='{{testList}}' wx:key='index'>
+              <view class='ac_cell_title'>
+                  <image src='/img/ac_title_icon.png'></image>
+                  <text class='f16 c-one'> 问题{{index + 1}}</text>
+              </view>
+              <view class='ac_question f15 c-333'>{{item.title}}</view>
+              <view class='ac_answer_list' >
+                  <view class='answer_cell' wx:for='{{item.option}}' wx:key='option' wx:for-index='cellIndex' wx:for-item='cell' data-option='{{cell.options}}' data-index='{{index}}' catchtap='selectAnswer' >
+                    <view >
+                      <image wx:if='{{item.answer == cell.options}}' src='/img/ac_select_icon.png'></image>
+                       <image wx:else src='/img/ac_select.png'></image> 
+                    </view>
+                    <text class='f13 c-666'>{{cell.title}}</text>
+                  </view>
+              </view>
+            </view>
+            </view>
+
+           <button class='btn full_btn mt-30' bindtap='submitFn'>提交</button>
+      </view>
+  </view>
+
+</scroll-view>
+
+
+
+

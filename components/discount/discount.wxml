@@ -1,0 +1,15 @@
+<template name='discount'>
+
+  <view class='body plr-20' wx:if='{{isReady}}'>
+    <view class='cell sel_cell mt-20' wx:for='{{discountList}}' wx:key='index' data-id='{{item.id}}' catchtap='selectCoupon' data-cname='{{item.discountName + item.discount}}折优惠券'>
+        <image class='sel_active' wx:if='{{selectDiscountId && selectDiscountId == item.id }}' src='/img/sel_active.png'></image> 
+        <view class='sel_head'>
+            <text class='f15 c-333 db'>{{item.discountName}}优惠券</text>
+            <text class='sel_dis'>{{item.discount}}折</text>
+        </view>
+        <view class='sel_footer'>
+            <text class='f12 c-999'>限{{phone}}购买{{item.discountName}}液化气使用</text>
+        </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,31 @@
+<!--pages/i-pages/gas-warn/gas-wa.wxml-->
+<view class='body plr-20 pb-footer' wx:if='{{isReady}}'>
+  <view class='cell warn_cell mt-20' wx:for='{{gasWarnList}}' wx:key='index'>
+      <view class='warn_head'>
+        <view class='warn_inner'>
+          <text class='f14 c-666'><text class='warn-label'>报警器编号</text> <text class='c-333'>{{item.code}}</text></text>
+           <text class='f14 c-666'><text class='warn-label'>报警次数</text> <text class='c-danger'>{{item.number}}</text></text>
+        </view>
+          <button class='btn btn_b warn_btn' data-id='{{item.id}}' catchtap='unbundling'>解绑</button> 
+      </view>
+      <view class='warn_detail bt-one' wx:if='{{item.time}}'>
+        <view class='warn_content f12 c-999'>
+          <image  src='/img/i_warning.png'></image>
+          <text>报警器编号{{item.code}}于 {{item.time}} 报警</text>
+        </view> 
+      </view>
+  </view>
+  <view class='f_btn_item'>
+  <button class='btn f_btn f_btn_icon' bindtap='addWarn'>
+       <image src='/img/add_icon.png'></image> 
+      新增报警器
+  </button>
+</view>
+</view>
+
+
+
+
+
+
+

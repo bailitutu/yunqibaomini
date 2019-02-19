@@ -1,0 +1,25 @@
+<view class="body plr-20 pb-footer" wx:if='{{isReady}}'>
+  <view class='cell s_address mt-20' 
+    catchtap='selectAddress'
+    data-enable='{{item.isDelivery == 0}}'
+    data-id='{{item.regid}}'
+    wx:for='{{addressList}}' 
+    wx:key='index'>
+      <view class='s_address_detail'>
+        <text class='f15 c-333'>{{item.province}}{{item.city}}{{item.region}}{{item.address}}</text>
+        <text class='f13 c-666 mt-20'> <text>{{item.regname}}</text><text class='ml-40'>{{item.regphone}}</text></text>
+      </view> 
+      <view class='select_address'>
+        <image src='/img/i_selected.png'  class='select_icon'  wx:if='{{selectAddressId && selectAddressId == item.regid }}'></image>
+        <image src='/img/disable_address.png' wx:if='{{item.isDelivery== 1}}' class='disable_icon'></image>
+      </view> 
+  </view>
+  <view class='f_btn_item'>
+    <button class='btn f_btn f_btn_icon' catchtap='addAddress'>
+      <image src='/img/add_icon.png'></image> 
+        新增配送地址
+    </button>
+  </view>
+</view>
+
+

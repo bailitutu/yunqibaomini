@@ -1,0 +1,130 @@
+<!--pages/o-pages/equitySwap/equitySwap.wxml-->
+<view class='body plr-20 '>
+  <view class='cell mt-20 plr-20'>
+    <view class='cell_inner'>
+        <label class='f14 c-999'>原气瓶品牌</label>
+        <input type='text' class='cell_inner_input c-333 f14' bindinput='changeBrand'  value='{{oldBrand}}' placeholder='请输入原气瓶品牌'></input>
+    </view>
+    <view class='cell_inner'>
+        <label class='f14 c-999'>原气瓶号</label>
+        <input type='text' class='cell_inner_input c-333 f14' bindinput='changeSerial' value='{{oldSerial}}' placeholder='请输入原气瓶号'></input>
+    </view>
+    <view class='cell_inner'>
+        <label class='f14 c-999'>置换品牌</label>
+        <input type='text' class='cell_inner_input c-333 f14'  value='{{pageData.brand}}'  disabled='disabled'></input>
+    </view>
+    <view class='cell_inner'>
+        <label class='f14 c-999'>现气瓶号</label>
+        <input type='text' class='cell_inner_input c-333 f14'  value='{{pageData.serial}}' disabled='disabled'></input>
+    </view>
+   <view class='cell_inner'>
+        <label class='f14 c-999'>充装单位</label>
+        <input type='text' class='cell_inner_input c-333 f14'  value='{{pageData.filling}}'  disabled='disabled'></input>
+    </view>
+   <view class='cell_inner'>
+        <label class='f14 c-999'>服务供应点</label>
+        <input type='text' class='cell_inner_input c-333 f14'  bindinput='changeSupply' value='{{supplyName}}' placeholder='(非必填)' ></input>
+    </view>
+   <view class='cell_inner' catchtap='selectPayWay'>
+      <label class='f14 c-999'>支付方式</label>
+      <text class='c-33 f14 cell_inner_input'>{{payWayArr[payWayIndex]}}</text>  
+    </view>
+  
+  </view>
+
+  <view class='cell mt-20 plr-20'>
+    <view class='cell_inner'>
+      <label class='f14 c-999'>配送员</label>
+      <text class='f14 c-333'>{{pageData.marki}}</text>
+    </view>
+    <view class='cell_inner'>
+      <label class='f14 c-999'>原气瓶折价(元)</label>
+      <view class='num_tool'>
+      
+        <view  class='num_tool_btn' catchtap='noAddShopNum' data-num='{{discount}}' >
+          <image src='/img/num_noAdd.png'></image>                    
+        </view>
+        <view >
+          <text class='f13 c-666 plr-10'>{{discount}}</text>
+        </view>
+        <view class='num_tool_btn' catchtap='addShopNum'  data-num='{{discount}}'>
+          <image src='/img/num_add.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='cell_inner'>
+      <label class='f14 c-999'>新瓶保证金</label>
+      <text class='f14 c-333'>￥{{pageData.propertyfee}}</text>
+    </view>
+   <view class='cell_inner'>
+      <label class='f14 c-999'>产权置换费</label>
+      <text class='f14 c-danger'>￥{{replacementfee}}</text>
+    </view>
+
+  </view>
+   <view class='protocol_tip' catchtap='aggressNotes'>
+      <view class='protocol_icon'>
+        <image wx:if='{{!hasCheckNotes}}' src='/img/noselect_protocol.png' ></image> 
+        <image wx:else src='/img/select_protocol.png'></image>
+      </view> 
+      <view class='f13 c-999 pl-20' >我已阅读并同意<text class='c-one' catchtap='checkNotes'>《气瓶产权置换须知》</text></view>
+  </view> 
+
+  <button class='btn full_btn mt-60 mb-40' catchtap = 'submit' >立即置换</button>
+
+</view>
+
+
+
+<view  class='y_alert' wx:if='{{showPayItem}}'>
+    <view class='y_alert_inner'>
+        <view class='y_alert_header'>
+          <view class='y_close_icon' catchtap='closePay'>
+              <image src='/img/close_btn.png'></image>
+          </view>
+          <view class='y_head_title f16 c-333'>请输入支付密码</view>
+        </view>
+        <view class='y_alert_content'>
+            <view class='content_item f20 c-333'>
+                ￥{{replacementfee}}
+            </view>
+            <view class='pass_item'>
+                <view class='pass_inner' catchtap='set_Focus'>
+                  <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 1}}'>*</i>
+                  </view>
+                  <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 2}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 3}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 4}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 5}}'>*</i>
+                  </view>
+                   <view class='pass_cell'>
+                    <i wx:if='{{ payPass.length >= 6}}'>*</i>
+                  </view>
+                </view>
+            </view>
+        </view>   
+    <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{payIsFocus}}" maxlength="6" />
+    </view>
+</view> 
+
+
+<view class='y-alert' wx:if='{{notFunds}}'>
+  <view class='y-alert-inner'>
+    <view class="alert-content t_center">  
+      <image src="/img/not_funds.png" alt="" class="age"></image>  
+      <view class="f15 c-333 mt-30">余额不足</view>        
+    </view>  
+    <view class='y-alert-btns'>
+        <button class='btn bg-white cancel_btn' catchtap='cancleRecharge'>取消</button>
+        <button class='btn bg-white confirm_btn' catchtap='goRecharge'>去充值</button>
+    </view>
+  </view>
+</view>

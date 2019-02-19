@@ -1,0 +1,25 @@
+<!--components/qualification/qualification.wxml-->
+<template name="qualification">
+  <view class='body plr-20' wx:if='{{isReady}}'>
+    <view class='cell s_cell mt-20'>
+      <view class='s_item' wx:for='{{infoList}}' wx:key='index'>
+        <text class='s_title f14 c-999'>{{item.title}}</text>
+        <text  class='s_value f14 c-333'>{{item.value}}</text>
+      </view>
+    </view>
+    <view class='cell com_cell mt-20'>
+        <view class='user_title'>
+          <text class='f14 c-999 bb-one'>{{imgInfo.title}}</text>
+        </view> 
+        <view class='user_upload'>
+          <view class='upload_cell' wx:for='{{imgInfo.imgList}}' wx:key='imginfo'>
+            <image class='upload_img' src='{{item.imgUrl}}'></image>  
+          </view> 
+      </view> 
+    </view>
+  </view>
+</template>
+
+
+
+

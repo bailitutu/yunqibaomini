@@ -1,0 +1,12 @@
+.cell{
+  padding:20rpx 20rpx 60rpx;
+  line-height: 44rpx;
+}
+.cell>text{
+  text-indent: 55rpx;
+  display: block;
+}
+.cell .inner_text{
+  text-indent: 80rpx;
+  display: block;
+}

@@ -1,0 +1,19 @@
+<scroll-view scroll-y='true' class='rec_inner '>
+    <image class='rec_bg ' src='/img/recom_bg.png'></image> 
+    <view class='plr-20 oh rec_body'>
+      <view class='rec_title'>
+        推荐有奖
+      </view>
+      <view class='rec_content c-white f13'>
+        <text class='c-danger'>打击“黑气”，人人有责！</text>      
+        <text>运气宝服务平台所提供的加盟商、供应点、配送员都具有合法的经营证件和从业资格证。目的就是要让用户用最实惠的价位订购到最安全的产品，享受最好的专业化服务待遇。</text>
+        <text>为了推广运气宝专业化服务平台能走进千家万户，本公司将奖励推荐人1瓶气5元，推荐人越多，奖励就越多。</text>
+        <text>告别缺斤少两，偷梁换柱（用报废瓶换用户的新瓶）等不良经营手段的新时代已经来临，为了你的亲朋好友不住受骗和安全生活，请快速推荐“运气宝”-运气到你家！</text>
+        <text>以上内容解释权归本公司所有。</text>
+ 
+      </view>
+      <view class='rec_btns'>
+          <button class='rec_btn' open-type='share' >分享</button>
+      </view>
+    </view>
+</scroll-view>

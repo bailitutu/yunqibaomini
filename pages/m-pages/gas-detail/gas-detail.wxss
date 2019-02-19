@@ -1,0 +1,52 @@
+/* pages/m-pages/gas-detail/gas-detail.wxss */
+.gas_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: space-between;
+  padding:24rpx;
+}
+.gas_info .gas_img{
+  width:200rpx;
+  height:200rpx;
+  border-radius: 8rpx;
+  border:1px solid #109ba6; 
+  overflow:hidden;
+}
+.gas_info .gas_img image{
+  width:200rpx;
+  height:200rpx;
+}
+.gas_inner{
+  margin-left:20rpx;
+  min-width:300rpx;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+}
+.gas_inner>view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+.d_cell{
+  padding:0 24rpx;
+}
+.d_cell .d_item{
+  height:84rpx;
+  border-bottom:1px solid #eeeeee;
+  line-height: 84rpx;
+}
+.d_cell .d_item:last-child{
+  border:none;
+}
+
+
+

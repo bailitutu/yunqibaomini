@@ -1,0 +1,19 @@
+
+
+  <import src='/components/nocontent/nocontent.wxml' />
+
+  <view class='body plr-20' wx:if='{{isReady}}'>
+    <view wx:if='{{discountList.length == 0}}'>
+      <template is='nocontet' data='{{noContentTips}}'></template>
+    </view>
+    <view class='cell sel_cell mt-20' wx:if='{{discountList.length > 0}}' wx:for='{{discountList}}' wx:key='index' data-id='{{item.id}}' >
+        <view class='sel_head'>
+            <text class='f15 c-333 db'>{{item.discountName}}优惠券</text>
+            <text class='sel_dis'>{{item.discount}}折</text>
+        </view>
+        <view class='sel_footer'>
+            <text class='f12 c-999'>限{{phone}}购买{{item.discountName}}液化气使用</text>
+        </view>
+    </view>
+  </view>
+

@@ -1,0 +1,12 @@
+
+<view class='league_body'>
+  <text class='f14 c-white mt-40'>点击可保存二维码</text>  
+  <text class='f14 c-white mt-20'>扫码加盟</text>  
+  <view class='view_img mt-60' >  
+    <image class='img' bindtap="previewImage" data-type='1' src='{{ scene_img1}}'></image>
+  </view>  
+   <view class='view_img mt-60' >  
+    <image class='img' bindtap="previewImage" data-type='2' src='{{ scene_img2}}'></image>
+  </view>  
+</view>
+

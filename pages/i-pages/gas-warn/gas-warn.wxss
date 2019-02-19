@@ -1,0 +1,47 @@
+/* pages/i-pages/gas-warn/gas-wa.wxss */
+.warn_cell {
+  padding:20rpx;
+}
+.warn_cell .warn_head{
+  height:150rpx;
+  width:100%;
+  position: relative;
+  padding-right:210rpx;
+}
+
+.warn_inner>text{
+  display: block;
+  line-height: 70rpx;
+}
+.warn-label{
+  width:200rpx;
+  display: inline-block;
+}
+.warn_head .warn_btn{
+  position: absolute;
+  top:50%;
+  right:0;
+  margin-top:-35rpx;
+}
+
+
+.warn_detail .warn_content{
+  line-height: 52rpx;
+  position: relative;
+  padding-left:48rpx;
+}
+.warn_content image{
+  width:26rpx;
+  height:26rpx;
+  position: absolute;
+  top:50%;
+  left:0;
+  margin-top:-13rpx;
+}
+.warn_content text{
+  display: block;
+}
+
+
+
+

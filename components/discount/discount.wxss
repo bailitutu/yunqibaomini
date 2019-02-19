@@ -1,0 +1,39 @@
+
+
+.sel_cell{
+  padding:24rpx;
+  position: relative;
+}
+.sel_active{
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 10;
+  width:48rpx;
+  height:36rpx;
+}
+.sel_head{
+  height: 120rpx;
+}
+.sel_head text{
+  height:60rpx;
+  line-height: 60rpx;
+}
+
+.sel_dis{
+  position:absolute;
+  top:24rpx;
+  right:46rpx;
+  height:60rpx;
+  color:#ff1f1f;
+  font-size:44rpx;
+}
+
+.sel_footer{
+  height: 56rpx;
+  border-top:1px dotted #d7eaff;
+  line-height: 56rpx;
+}
+.disable text{
+  color:#999999;
+}

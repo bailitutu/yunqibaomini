@@ -1,0 +1,11 @@
+<!--pages/s-pages/supply-qual/supply-qual.wxml-->
+<import src="/components/qualification/qualification.wxml"/>
+
+<template is="qualification"  data="{{infoList,imgInfo,isReady}}"></template>
+
+
+
+
+
+
+

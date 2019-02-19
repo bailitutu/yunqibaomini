@@ -1,0 +1,173 @@
+/* pages/order/order.wxss */
+page{
+  height:100%;
+}
+.body{
+  height:100%;
+}
+.inner{
+  width:100%;
+  overflow:Hidden;
+}
+.full_croll{
+  height: 100%;
+}
+.cell_title{
+  height:88rpx;
+  line-height: 88rpx;
+  padding:0 24rpx;
+}
+.cell_t_l{
+  float: left;
+  font-size:32rpx;
+  color:#333;
+}
+
+.cell_t_r{
+  float: right;
+  font-size:24rpx;
+  color:#333;
+}
+.cell_content{
+  height:196rpx;
+  background: #F8FEFE;
+  position: relative;
+  padding:22rpx 24rpx 23rpx 196rpx;
+}
+.cell_img{
+  position: absolute;
+  top:50%;
+  left:24rpx;
+  height:150rpx;
+  width:150rpx;
+  border:1px solid #109ba6;
+  margin-top: -75rpx;
+  overflow:hidden;
+  border-radius: 8rpx;
+}
+.cell_img image{
+  width:148rpx;
+  height:148rpx;
+}
+
+.cell_inner{
+  width:100%;
+  
+}
+
+.cell_inner .inner_cell{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ 
+}
+
+.inner_cell .good_name{
+  font-size:30rpx;
+  color:#333333;
+}
+.inner_cell .good_num{
+  font-size:24rpx;
+  color:#333333;
+}
+.inner_cell .good_attr,.inner_cell .attr,.inner_cell .good_price{
+  font-size:26rpx;
+  color:#666666;
+}
+.inner_cell .attr{
+    margin-top: 15rpx;
+}
+.inner_cell .price{
+  color:#ff1f1f;
+  font-size:30rpx;
+  font-weight: bold;
+  margin-top: 15rpx;
+}
+
+
+.cell_footer{
+  height: 112rpx;
+  line-height: 112rpx;
+  padding:25rpx 24rpx;
+}
+
+.cell_btn{
+  height:60rpx;
+  width:140rpx;
+  border:1px solid #109ba6;
+  border-radius: 8rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color:#109ba6;
+  font-size:24rpx;
+  padding:0;
+  float:right;
+  margin-left:28rpx;
+  background-color: #FFFEFF;
+}
+
+
+/* 空白页 */
+.no_content {
+    text-align: center;
+    padding-top: 180rpx;
+}
+.no_content>image{
+  width:200rpx;
+  height:148rpx;
+}
+
+
+
+.y_alert{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100000;
+  display: -webkit-flex;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  overflow:hidden;
+}
+.y_alert .y_alert_inner{
+  width:710rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  overflow:hidden;
+}
+.alert_content{
+  padding:70rpx 0;
+}
+.alert_content image{
+  width:82rpx;
+  height:76rpx;
+}
+.y_alert-btns{
+  border-top:1px solid #e9e9e9;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow:hidden;
+}
+.y_alert-btns button{
+  width:50%;
+  height:100rpx;
+  line-height: 100rpx;
+  border-radius: 0;
+  font-size:36rpx;
+  text-align: center;
+}
+.y_alert-btns .cancel_btn{
+  color:#999999;
+  border-right:1px solid #e9e9e9;
+}
+.y_alert-btns .confirm_btn{
+  color:#4094fd;
+}
+

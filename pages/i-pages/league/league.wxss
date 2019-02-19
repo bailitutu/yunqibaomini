@@ -1,0 +1,24 @@
+/* pages/i-pages/league/league.wxss */
+page{
+   background: linear-gradient(to bottom right, #109ba6,#109ba6,#63D0D5 );
+}
+
+
+.league_body{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.view_img{
+   width: 300rpx;
+  height:300rpx;
+  padding:10rpx;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.view_img image{
+  width:100%;
+  height:100%;
+}

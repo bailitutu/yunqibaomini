@@ -1,0 +1,33 @@
+<!--pages/m-pages/deal-detail/deal-detail.wxml-->
+<view class='body plr-20'>
+  <view class='cell price_item mt-20'>
+
+    <view class='price_inner'>
+      <image src='{{info.comeOut ? "/img/deal_icon2.png" : "/img/deal_icon1.png"}}'></image>
+      <view class='price_detail'>
+        <text class='db f20 c-333'>{{info.comeOut ? '-': '+'}}{{info.amount}}</text>
+        <text class='db f12 c-666 mt-15'>{{info.isPaid}}</text>
+      </view> 
+    </view> 
+  </view>
+ <view  class='cell d_cell mt-20'>
+    <view class='d_item'>
+      <text class='fl f14 c-999'>付款方式</text>
+      <text class='fr f14 c-666'>{{info.paymentMethod}}</text>
+    </view>
+    <view class='d_item'>
+      <text class='fl f14 c-999'>交易单号</text>
+      <text class='fr f14 c-666'>{{info.transactionCode}}</text>
+    </view>
+        <view class='d_item'>
+      <text class='fl f14 c-999'>账单分类</text>
+      <text class='fr f14 c-666'>{{info.type}}</text>
+    </view>
+        <view class='d_item'>
+      <text class='fl f14 c-999'>创建时间</text>
+      <text class='fr f14 c-666'>{{info.time}}</text>
+    </view>
+  </view>
+</view>
+
+

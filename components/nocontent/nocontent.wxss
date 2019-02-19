@@ -1,0 +1,9 @@
+.no_page{
+  width:100%;
+  text-align: center;
+  margin-top:180rpx;
+}
+.no_page image{
+  width:264rpx;
+  height:200rpx;
+}
